@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron-Carbon Phase Diagram | Simple Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #34495e;
+            --primary-lighter: #506278;
+            --primary-dark: #1a252f;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #e0e0e0;
+            --accent: #95a5a6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--card);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin: 30px 0 16px 0;
+        }
+
+        p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .simple-box {
+            background: var(--bg);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .simple-box p {
+            margin-bottom: 8px;
+        }
+
+        /* Phase Diagram */
+        .diagram-wrapper {
+            background: var(--card);
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 4px 30px rgba(44, 62, 80, 0.1);
+        }
+
+        .phase-diagram {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            aspect-ratio: 16/10;
+        }
+
+        .diagram-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            fill: var(--primary);
+        }
+
+        .region-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            fill: var(--primary-dark);
+        }
+
+        .phase-area {
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .phase-area:hover {
+            opacity: 0.7;
+        }
+
+        /* Simple Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--bg);
+            padding: 28px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+        }
+
+        .card h4 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 1.05em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--primary);
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: var(--bg);
+        }
+
+        /* Simple list */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 0 12px 32px;
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        ul li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2em;
+        }
+
+        .reaction-box {
+            background: var(--primary);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .reaction-box small {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.8em;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .highlight {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .number-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 24px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: var(--primary-dark);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+
+        .diagram-note {
+            text-align: center;
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-top: 16px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Iron-Carbon Phase Diagram</h1>
+            <p class="subtitle">A Simple Visual Guide</p>
+        </header>
+
+        <!-- What is it? -->
+        <div class="section">
+            <h2>What is This Diagram?</h2>
+            <p>The Iron-Carbon Phase Diagram is like a <strong>map</strong> that shows what happens to iron when you:</p>
+            <ul>
+                <li>Add different amounts of carbon (0% to 6.67%)</li>
+                <li>Change the temperature (from room temp to 1600°C)</li>
+            </ul>
+            
+            <div class="simple-box">
+                <p><strong>Think of it this way:</strong></p>
+                <p>Just like water can be ice, liquid, or steam depending on temperature, iron can be different "phases" depending on temperature AND carbon content.</p>
+            </div>
+
+            <p>This diagram tells us:</p>
+            <ul>
+                <li>What structure the iron has</li>
+                <li>How hard or soft it will be</li>
+                <li>Whether it's steel or cast iron</li>
+            </ul>
+        </div>
+
+        <!-- The Diagram -->
+        <div class="section">
+            <h2>The Phase Diagram</h2>
+            
+            <div class="diagram-wrapper">
+                <svg class="phase-diagram" viewBox="0 0 1000 600">
+                    <!-- Background grid -->
+                    <defs>
+                        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="1000" height="600" fill="url(#grid)"/>
+
+                    <!-- Axes -->
+                    <line x1="100" y1="500" x2="900" y2="500" stroke="var(--primary)" stroke-width="3"/>
+                    <line x1="100" y1="500" x2="100" y2="50" stroke="var(--primary)" stroke-width="3"/>
+
+                    <!-- Phase regions with COLORS -->
+                    
+                    <!-- Liquid (light yellow) -->
+                    <path d="M 100 50 L 220 50 L 520 120 L 720 100 L 900 100 L 900 50 Z" 
+                          fill="#fff9c4" opacity="0.9" class="phase-area" data-phase="Liquid"/>
+                    
+                    <!-- Delta + Liquid -->
+                    <path d="M 100 50 L 100 160 L 180 160 L 220 50 Z" 
+                          fill="#b3e5fc" opacity="0.8" class="phase-area" data-phase="δ + L"/>
+                    
+                    <!-- Austenite (red/orange) -->
+                    <path d="M 180 160 L 200 260 L 420 360 L 720 260 L 720 100 L 520 120 L 220 50 L 180 160 Z" 
+                          fill="#ff6b6b" opacity="0.7" class="phase-area" data-phase="Austenite (γ)"/>
+                    
+                    <!-- Ferrite + Austenite -->
+                    <path d="M 100 160 L 100 400 L 200 360 L 200 260 L 180 160 Z" 
+                          fill="#90caf9" opacity="0.7" class="phase-area" data-phase="α + γ"/>
+                    
+                    <!-- Ferrite + Cementite (blue) -->
+                    <path d="M 100 400 L 100 500 L 420 500 L 420 360 L 200 360 Z" 
+                          fill="#64b5f6" opacity="0.7" class="phase-area" data-phase="α + Fe₃C"/>
+                    
+                    <!-- Austenite + Cementite (yellow-orange) -->
+                    <path d="M 420 360 L 420 500 L 850 500 L 850 260 L 720 260 Z" 
+                          fill="#ffb74d" opacity="0.7" class="phase-area" data-phase="γ + Fe₃C"/>
+                    
+                    <!-- Austenite + Liquid -->
+                    <path d="M 520 120 L 720 100 L 720 260 Z" 
+                          fill="#ffcc80" opacity="0.7" class="phase-area" data-phase="γ + L"/>
+                    
+                    <!-- Cementite (dark grey) -->
+                    <path d="M 850 260 L 850 500 L 900 500 L 900 100 L 720 100 L 720 260 Z" 
+                          fill="#757575" opacity="0.8" class="phase-area" data-phase="Fe₃C"/>
+
+                    <!-- IMPORTANT TEMPERATURE LINES with labels -->
+                    
+                    <!-- 1538°C - Melting point of pure Fe -->
+                    <line x1="100" y1="50" x2="110" y2="50" stroke="#d32f2f" stroke-width="2"/>
+                    <text x="60" y="55" class="diagram-label" font-size="11" fill="#d32f2f" text-anchor="end">1538°C</text>
+                    
+                    <!-- 1493°C - Peritectic -->
+                    <line x1="100" y1="73" x2="220" y2="73" stroke="#1976d2" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="78" class="diagram-label" font-size="11" fill="#1976d2" text-anchor="end">1493°C</text>
+                    
+                    <!-- 1394°C - Delta to Gamma -->
+                    <line x1="100" y1="118" x2="115" y2="118" stroke="#7b1fa2" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="123" class="diagram-label" font-size="11" fill="#7b1fa2" text-anchor="end">1394°C</text>
+                    
+                    <!-- 1147°C - Eutectic -->
+                    <line x1="520" y1="187" x2="900" y2="187" stroke="#e65100" stroke-width="2.5" stroke-dasharray="5,3"/>
+                    <text x="920" y="192" class="diagram-label" font-size="12" fill="#e65100" font-weight="600">1147°C (Eutectic)</text>
+                    
+                    <!-- 912°C - A3 for pure Fe -->
+                    <line x1="100" y1="312" x2="115" y2="312" stroke="#0288d1" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="317" class="diagram-label" font-size="11" fill="#0288d1" text-anchor="end">912°C</text>
+                    
+                    <!-- 727°C - Eutectoid (A1) - MOST IMPORTANT -->
+                    <line x1="100" y1="360" x2="850" y2="360" stroke="#c62828" stroke-width="3.5" stroke-dasharray="8,4"/>
+                    <text x="920" y="365" class="diagram-label" font-size="13" fill="#c62828" font-weight="700">727°C (A₁)</text>
+
+                    <!-- A3 line (Ferrite-Austenite boundary) -->
+                    <polyline points="100,312 200,360" stroke="#0288d1" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+                    
+                    <!-- Acm line (Austenite-Cementite boundary) -->
+                    <polyline points="420,360 850,187" stroke="#f57c00" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+
+                    <!-- Steel vs Cast Iron boundary -->
+                    <line x1="420" y1="50" x2="420" y2="500" stroke="#2e7d32" stroke-width="3" stroke-dasharray="8,5"/>
+                    <text x="260" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">← STEEL</text>
+                    <text x="560" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">CAST IRON →</text>
+                    <text x="425" y="520" class="diagram-label" font-size="11" fill="#2e7d32" text-anchor="start">2.14%</text>
+
+                    <!-- Critical points with DETAILED LABELS -->
+                    
+                    <!-- Peritectic Point -->
+                    <circle cx="180" cy="160" r="7" fill="#1976d2" stroke="white" stroke-width="2"/>
+                    <text x="180" y="145" class="diagram-label" text-anchor="middle" font-size="13" font-weight="700" fill="#1976d2">Peritectic</text>
+                    <text x="180" y="132" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">0.16% C</text>
+                    <text x="180" y="120" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">1493°C</text>
+                    
+                    <!-- Eutectoid Point -->
+                    <circle cx="420" cy="360" r="9" fill="#c62828" stroke="white" stroke-width="3"/>
+                    <text x="420" y="340" class="diagram-label" text-anchor="middle" font-size="16" font-weight="700" fill="#c62828">EUTECTOID</text>
+                    <text x="420" y="325" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">0.76% C</text>
+                    <text x="420" y="312" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">727°C</text>
+
+                    <!-- Eutectic Point -->
+                    <circle cx="720" cy="260" r="8" fill="#e65100" stroke="white" stroke-width="2"/>
+                    <text x="720" y="242" class="diagram-label" text-anchor="middle" font-size="14" font-weight="700" fill="#e65100">Eutectic</text>
+                    <text x="720" y="228" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">4.3% C</text>
+                    <text x="720" y="215" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">1147°C</text>
+
+                    <!-- Maximum carbon solubility in Austenite -->
+                    <circle cx="720" cy="187" r="6" fill="#ff6b6b" stroke="white" stroke-width="2"/>
+                    <text x="750" y="192" class="diagram-label" font-size="10" fill="#ff6b6b">2.14% C (max)</text>
+
+                    <!-- Phase labels -->
+                    <text x="130" y="130" class="region-label" font-size="15" fill="#1565c0">δ-Ferrite</text>
+                    <text x="130" y="480" class="region-label" font-size="16" fill="#1565c0">α-Ferrite</text>
+                    <text x="350" y="220" class="region-label" font-size="18" fill="#fff" font-weight="700">Austenite (γ)</text>
+                    <text x="250" y="450" class="region-label" font-size="15" fill="#0d47a1">α + Fe₃C</text>
+                    <text x="150" y="90" class="region-label" font-size="15" fill="#f57f17">Liquid</text>
+                    <text x="870" y="380" class="region-label" font-size="15" fill="#fff" font-weight="600">Fe₃C</text>
+                    <text x="580" y="450" class="region-label" font-size="14" fill="#e65100">γ + Fe₃C</text>
+
+                    <!-- X-axis labels (Carbon %) with MORE detail -->
+                    <text x="100" y="530" class="diagram-label" text-anchor="middle" font-weight="600">0</text>
+                    <line x1="100" y1="500" x2="100" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="180" y="530" class="diagram-label" text-anchor="middle">0.5</text>
+                    <line x1="180" y1="500" x2="180" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="260" y="530" class="diagram-label" text-anchor="middle" font-weight="600">1</text>
+                    <line x1="260" y1="500" x2="260" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="340" y="530" class="diagram-label" text-anchor="middle">1.5</text>
+                    <line x1="340" y1="500" x2="340" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="420" y="530" class="diagram-label" text-anchor="middle" font-weight="600" fill="#2e7d32">2.14</text>
+                    <line x1="420" y1="500" x2="420" y2="510" stroke="#2e7d32" stroke-width="2"/>
+                    
+                    <text x="500" y="530" class="diagram-label" text-anchor="middle">3</text>
+                    <line x1="500" y1="500" x2="500" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="580" y="530" class="diagram-label" text-anchor="middle">4</text>
+                    <line x1="580" y1="500" x2="580" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="720" y="530" class="diagram-label" text-anchor="middle" font-weight="600" fill="#e65100">4.3</text>
+                    <line x1="720" y1="500" x2="720" y2="510" stroke="#e65100" stroke-width="2"/>
+                    
+                    <text x="850" y="530" class="diagram-label" text-anchor="middle" font-weight="600">6.67</text>
+                    <line x1="850" y1="500" x2="850" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="500" y="570" class="diagram-label" font-size="18" text-anchor="middle" font-weight="700">Carbon Content (wt %)</text>
+
+                    <!-- Y-axis labels (Temperature) with MORE detail -->
+                    <text x="70" y="505" class="diagram-label" text-anchor="end" font-weight="600">0</text>
+                    <text x="70" y="450" class="diagram-label" text-anchor="end">200</text>
+                    <text x="70" y="400" class="diagram-label" text-anchor="end" font-weight="600">400</text>
+                    <text x="70" y="365" class="diagram-label" text-anchor="end" font-weight="700" fill="#c62828">727</text>
+                    <text x="70" y="315" class="diagram-label" text-anchor="end" font-weight="600" fill="#0288d1">912</text>
+                    <text x="70" y="250" class="diagram-label" text-anchor="end">1000</text>
+                    <text x="70" y="192" class="diagram-label" text-anchor="end" font-weight="600" fill="#e65100">1147</text>
+                    <text x="70" y="150" class="diagram-label" text-anchor="end">1300</text>
+                    <text x="70" y="78" class="diagram-label" text-anchor="end" font-weight="600" fill="#1976d2">1493</text>
+                    <text x="70" y="55" class="diagram-label" text-anchor="end" font-weight="600" fill="#d32f2f">1538</text>
+                    
+                    <text x="30" y="300" class="diagram-label" text-anchor="middle" font-size="18" font-weight="700" transform="rotate(-90 30 300)">Temperature (°C)</text>
+                </svg>
+
+
+            </div>
+        </div>
+
+        <!-- Simple Explanation of Axes -->
+        <div class="section">
+            <h2>Understanding the Axes</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Horizontal Axis (X)</h4>
+                    <p><strong>Carbon Percentage (0 to 6.67%)</strong></p>
+                    <p>• More carbon = Harder material</p>
+                    <p>• Less carbon = Softer material</p>
+                </div>
+
+                <div class="card">
+                    <h4>Vertical Axis (Y)</h4>
+                    <p><strong>Temperature (°C)</strong></p>
+                    <p>• Higher temp = Different structure</p>
+                    <p>• As you cool down, iron changes</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- The Phases (Simple) -->
+        <div class="section">
+            <h2>The Main Phases (What Iron Becomes)</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="number-badge">1</span>Ferrite (α-iron)</h4>
+                    
+                    <!-- 3D BCC Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="atomBlue" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1976d2;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="atomRed" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Cube back edges (lighter) -->
+                        <line x1="80" y1="60" x2="150" y2="35" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="35" x2="220" y2="60" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="60" x2="220" y2="130" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="130" x2="150" y2="155" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="155" x2="80" y2="130" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="80" y1="130" x2="80" y2="60" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        
+                        <!-- Connecting edges -->
+                        <line x1="80" y1="60" x2="95" y2="80" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="150" y1="35" x2="165" y2="55" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="220" y1="60" x2="205" y2="80" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="220" y1="130" x2="205" y2="150" stroke="#546e7a" stroke-width="2.5"/>
+                        
+                        <!-- Cube front edges (darker) -->
+                        <line x1="95" y1="80" x2="165" y2="55" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="55" x2="205" y2="80" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="80" x2="205" y2="150" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="150" x2="165" y2="175" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="175" x2="95" y2="200" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="200" x2="95" y2="130" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="95" y2="80" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="165" y2="155" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="155" x2="205" y2="130" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="130" x2="205" y2="80" stroke="#37474f" stroke-width="3"/>
+                        
+                        <!-- Corner atoms (8 corners) -->
+                        <circle cx="95" cy="80" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="55" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="205" cy="80" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="205" cy="150" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="95" cy="130" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="155" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="95" cy="200" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="175" r="11" fill="url(#atomBlue)"/>
+                        
+                        <!-- Center atom (body center) - LARGER & RED -->
+                        <circle cx="150" cy="115" r="15" fill="url(#atomRed)"/>
+                        <text x="150" y="121" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Fe</text>
+                        
+                        <!-- Label -->
+                        <text x="150" y="235" font-size="17" font-weight="bold" fill="#1976d2" text-anchor="middle">BCC Structure</text>
+                        <text x="150" y="255" font-size="12" fill="#666" text-anchor="middle">Body-Centered Cubic</text>
+                    </svg>
+                    
+                    <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Atoms/cell:</strong> 2</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Packing:</strong> 68%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Max 0.022%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Temp:</strong> Below 912°C</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Soft, bendable, magnetic</p>
+                    <p><strong>Example:</strong> Soft iron, mild steel</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">2</span>Austenite (γ-iron)</h4>
+                    
+                    <!-- 3D FCC Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="atomRed2" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ff9999;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="atomYellow" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fbc02d;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Cube back edges -->
+                        <line x1="80" y1="60" x2="150" y2="35" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="35" x2="220" y2="60" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="60" x2="220" y2="130" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="130" x2="150" y2="155" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        
+                        <!-- Cube front edges -->
+                        <line x1="95" y1="80" x2="165" y2="55" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="55" x2="205" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="80" x2="205" y2="150" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="150" x2="165" y2="175" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="175" x2="95" y2="200" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="200" x2="95" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="165" y2="155" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="155" x2="205" y2="130" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="130" x2="205" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="95" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        
+                        <!-- Corner atoms -->
+                        <circle cx="95" cy="80" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="55" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="205" cy="80" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="205" cy="150" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="95" cy="130" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="155" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="95" cy="200" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="175" r="10" fill="url(#atomRed2)"/>
+                        
+                        <!-- Face-centered atoms (6 faces) - LARGER & YELLOW -->
+                        <circle cx="130" cy="68" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="150" cy="105" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="185" cy="115" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="150" cy="145" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="130" cy="165" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="110" cy="140" r="13" fill="url(#atomYellow)"/>
+                        
+                        <text x="150" y="235" font-size="17" font-weight="bold" fill="#d32f2f" text-anchor="middle">FCC Structure</text>
+                        <text x="150" y="255" font-size="12" fill="#666" text-anchor="middle">Face-Centered Cubic</text>
+                    </svg>
+                    
+                    <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Atoms/cell:</strong> 4</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Packing:</strong> 74%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Up to 2.14%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Temp:</strong> 912-1394°C</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Can hold more carbon, not magnetic</p>
+                    <p><strong>Important:</strong> This is where heat treatment starts!</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">3</span>Cementite (Fe₃C)</h4>
+                    
+                    <!-- 3D Orthorhombic Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="feAtom" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#9e9e9e;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#424242;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="cAtom" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Orthorhombic structure (elongated rectangle) -->
+                        <!-- Back face -->
+                        <rect x="70" y="45" width="160" height="80" fill="none" stroke="#757575" stroke-width="2" opacity="0.3"/>
+                        
+                        <!-- Connecting lines -->
+                        <line x1="70" y1="45" x2="85" y2="65" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="230" y1="45" x2="245" y2="65" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="230" y1="125" x2="245" y2="145" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="70" y1="125" x2="85" y2="145" stroke="#424242" stroke-width="2.5"/>
+                        
+                        <!-- Front face -->
+                        <rect x="85" y="65" width="160" height="80" fill="none" stroke="#212121" stroke-width="3.5"/>
+                        
+                        <!-- Iron atoms (Fe - larger, dark grey) -->
+                        <circle cx="110" cy="80" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="80" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="80" r="11" fill="url(#feAtom)"/>
+                        
+                        <circle cx="110" cy="105" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="105" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="105" r="11" fill="url(#feAtom)"/>
+                        
+                        <circle cx="110" cy="130" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="130" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="130" r="11" fill="url(#feAtom)"/>
+                        
+                        <!-- Carbon atoms (C - smaller, red) -->
+                        <circle cx="138" cy="92" r="8" fill="url(#cAtom)"/>
+                        <circle cx="193" cy="92" r="8" fill="url(#cAtom)"/>
+                        <circle cx="138" cy="118" r="8" fill="url(#cAtom)"/>
+                        <circle cx="193" cy="118" r="8" fill="url(#cAtom)"/>
+                        
+                        <!-- Labels on atoms -->
+                        <text x="165" y="109" font-size="9" font-weight="bold" fill="white" text-anchor="middle">Fe</text>
+                        <text x="138" y="96" font-size="8" font-weight="bold" fill="white" text-anchor="middle">C</text>
+                        
+                        <text x="165" y="175" font-size="17" font-weight="bold" fill="#424242" text-anchor="middle">Orthorhombic</text>
+                        <text x="165" y="195" font-size="13" fill="#666" text-anchor="middle">Fe₃C Formula</text>
+                        <text x="165" y="210" font-size="11" fill="#666" text-anchor="middle">(3 Fe : 1 C ratio)</text>
+                    </svg>
+                    
+                    <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; margin-top: 10px; border: 2px solid #757575;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Formula:</strong> Fe₃C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Exactly 6.67%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Hardness:</strong> ~800 HV</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Nature:</strong> Metastable</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Very hard, very brittle</p>
+                    <p><strong>Note:</strong> Too brittle to use alone - needs ferrite</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">4</span>Pearlite</h4>
+                    
+                    <!-- Lamellar structure diagram -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <linearGradient id="ferriteL" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#90caf9;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="cementiteL" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#616161;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#212121;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Layered structure with 3D depth -->
+                        <g transform="translate(50, 40)">
+                            <!-- Layer 1 -->
+                            <rect x="0" y="0" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 0 L 170 10 L 170 28 L 150 18 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="13" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 2 -->
+                            <rect x="0" y="18" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 18 L 170 28 L 170 38 L 150 28 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="33" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 3 -->
+                            <rect x="0" y="28" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 28 L 170 38 L 170 56 L 150 46 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="47" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 4 -->
+                            <rect x="0" y="46" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 46 L 170 56 L 170 66 L 150 56 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="61" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 5 -->
+                            <rect x="0" y="56" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 56 L 170 66 L 170 84 L 150 74 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="75" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 6 -->
+                            <rect x="0" y="74" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 74 L 170 84 L 170 94 L 150 84 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="89" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 7 -->
+                            <rect x="0" y="84" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 84 L 170 94 L 170 112 L 150 102 Z" fill="#64b5f6" opacity="0.7"/>
+                            
+                            <!-- Left depth edge -->
+                            <path d="M 0 0 L 20 10 L 20 112 L 0 102 Z" fill="#1976d2" opacity="0.4"/>
+                            
+                            <!-- Spacing label -->
+                            <line x1="-15" y1="28" x2="-15" y2="84" stroke="#f57c00" stroke-width="2"/>
+                            <line x1="-18" y1="28" x2="-12" y2="28" stroke="#f57c00" stroke-width="2"/>
+                            <line x1="-18" y1="84" x2="-12" y2="84" stroke="#f57c00" stroke-width="2"/>
+                            <text x="-30" y="60" font-size="9" fill="#f57c00" font-weight="600" transform="rotate(-90 -30 60)">~0.5-1 μm</text>
+                        </g>
+                        
+                        <text x="150" y="180" font-size="17" font-weight="bold" fill="#f57c00" text-anchor="middle">Lamellar Structure</text>
+                        <text x="150" y="200" font-size="12" fill="#666" text-anchor="middle">Alternating Layers</text>
+                    </svg>
+                    
+                    <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #f57c00;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Mix:</strong> 88% Ferrite + 12% Fe₃C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Forms at:</strong> 727°C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Hardness:</strong> ~200 HV</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Strength:</strong> ~400 MPa</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>What it is:</strong> Mix of Ferrite + Cementite in layers</p>
+                    <p><strong>Properties:</strong> Good balance of strength and hardness</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Most Important Point -->
+        <div class="section">
+            <h2>The Most Important Point: Eutectoid</h2>
+
+            <div class="simple-box" style="border-left-color: var(--primary-dark); background: var(--primary); color: white;">
+                <h3 style="color: white; margin-top: 0;">The Magic Spot: 0.76% Carbon at 727°C</h3>
+                <p style="color: white; font-size: 1.2em;">This is THE most important point in steel making!</p>
+            </div>
+
+            <h3>What happens here?</h3>
+            <div class="reaction-box">
+                Austenite → Ferrite + Cementite (Pearlite)
+                <small>When you cool through 727°C, austenite transforms into pearlite</small>
+            </div>
+
+            <p><strong>Why is this important?</strong></p>
+            <ul>
+                <li>It divides steels into three types</li>
+                <li>Most heat treatments aim for this temperature</li>
+                <li>The product (pearlite) has great properties</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Steel Type</th>
+                        <th>Carbon Content</th>
+                        <th>What You Get</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hypoeutectoid</strong></td>
+                        <td>Less than 0.76% C</td>
+                        <td>Ferrite + Pearlite (softer)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eutectoid</strong></td>
+                        <td>Exactly 0.76% C</td>
+                        <td>100% Pearlite (balanced)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hypereutectoid</strong></td>
+                        <td>More than 0.76% C</td>
+                        <td>Cementite + Pearlite (harder)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Steel vs Cast Iron -->
+        <div class="section">
+            <h2>Steel vs Cast Iron (The Big Divide)</h2>
+
+            <p>The vertical line at <span class="highlight">2.14% Carbon</span> splits the diagram into two worlds:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>STEEL (Left Side)</h4>
+                    <p><strong>Carbon:</strong> 0 to 2.14%</p>
+                    <p><strong>Can you bend it?</strong> Yes</p>
+                    <p><strong>Can you weld it?</strong> Yes</p>
+                    <p><strong>Can you shape it?</strong> Yes (rolling, forging)</p>
+                    <p><strong>Uses:</strong> Buildings, cars, tools, machines</p>
+                </div>
+
+                <div class="card">
+                    <h4>CAST IRON (Right Side)</h4>
+                    <p><strong>Carbon:</strong> 2.14 to 6.67%</p>
+                    <p><strong>Can you bend it?</strong> No (breaks)</p>
+                    <p><strong>Can you weld it?</strong> Difficult</p>
+                    <p><strong>Can you shape it?</strong> Only by casting (melting & pouring)</p>
+                    <p><strong>Uses:</strong> Engine blocks, pipes, cookware</p>
+                </div>
+            </div>
+
+            <div class="simple-box">
+                <p><strong>Simple rule:</strong> Want to shape it after making? → Use steel (low carbon). Want to pour it into a mold? → Use cast iron (high carbon).</p>
+            </div>
+        </div>
+
+        <!-- How to Use This Diagram -->
+        <div class="section">
+            <h2>How to Use This Diagram</h2>
+
+            <h3>Example: What happens when you cool 0.4% carbon steel?</h3>
+
+            <div class="simple-box">
+                <p><strong>Step 1:</strong> At 1000°C → You're in the Austenite region (100% austenite)</p>
+                <p><strong>Step 2:</strong> Cool down to 800°C → Some ferrite starts forming</p>
+                <p><strong>Step 3:</strong> Hit 727°C → The remaining austenite becomes pearlite</p>
+                <p><strong>Final result:</strong> You get a mix of Ferrite (soft) + Pearlite (harder)</p>
+            </div>
+
+            <p><strong>This tells you:</strong></p>
+            <ul>
+                <li>The final structure</li>
+                <li>How hard it will be</li>
+                <li>How strong it will be</li>
+                <li>How to heat treat it</li>
+            </ul>
+        </div>
+
+        <!-- Why It Matters -->
+        <div class="section">
+            <h2>Why This Diagram Matters</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>1. Choose the Right Material</h4>
+                    <p>Need something soft and bendable? Use low carbon (0.1-0.2%).</p>
+                    <p>Need something hard? Use high carbon (0.8-1%).</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Design Heat Treatment</h4>
+                    <p>The diagram tells you what temperatures to use for hardening, softening, or strengthening steel.</p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Predict Properties</h4>
+                    <p>Know the carbon % and cooling process? The diagram predicts hardness and strength!</p>
+                </div>
+
+                <div class="card">
+                    <h4>4. Understand Failures</h4>
+                    <p>If steel broke or cracked, this diagram helps explain why (wrong structure formed).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="section" style="background: var(--primary); color: white;">
+            <h2 style="color: white; border-bottom-color: white;">Key Points to Remember</h2>
+            
+            <ul style="font-size: 1.2em;">
+                <li style="color: white;">The diagram shows what iron looks like at different temperatures and carbon levels</li>
+                <li style="color: white;">The eutectoid point (0.76% C, 727°C) is the MOST important spot</li>
+                <li style="color: white;">2.14% carbon divides steel from cast iron</li>
+                <li style="color: white;">More carbon = harder but more brittle</li>
+                <li style="color: white;">Use this diagram to choose materials and design heat treatments</li>
+            </ul>
+
+        </div>
+
+        <footer>
+            <p>Iron-Carbon Phase Diagram Guide</p>
+        </footer>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Interactive tooltips
+        const tooltip = document.getElementById('tooltip');
+        const phaseAreas = document.querySelectorAll('.phase-area');
+
+        phaseAreas.forEach(area => {
+            area.addEventListener('mouseenter', function(e) {
+                const phase = this.getAttribute('data-phase');
+                tooltip.textContent = phase;
+                tooltip.style.opacity = '1';
+            });
+
+            area.addEventListener('mousemove', function(e) {
+                tooltip.style.left = (e.pageX + 15) + 'px';
+                tooltip.style.top = (e.pageY + 15) + 'px';
+            });
+
+            area.addEventListener('mouseleave', function() {
+                tooltip.style.opacity = '0';
+            });
+        });
+
+        // Smooth scroll animations
+        const sections = document.querySelectorAll('.section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        console.log('✅ Simple Iron-Carbon Phase Diagram loaded');
+    </script>
+</body>
+</html>
