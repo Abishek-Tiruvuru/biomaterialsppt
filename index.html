@@ -131,14 +131,14 @@
 
         .diagram-label {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             fill: var(--primary);
         }
 
         .region-label {
             font-family: 'Inter', sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             fill: var(--primary-dark);
         }
@@ -365,14 +365,14 @@
             <h2>The Phase Diagram</h2>
             
             <div class="diagram-wrapper">
-                <svg class="phase-diagram" viewBox="0 0 1000 600">
+                <svg class="phase-diagram" viewBox="0 0 1000 620">
                     <!-- Background grid -->
                     <defs>
                         <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
                             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
                         </pattern>
                     </defs>
-                    <rect width="1000" height="600" fill="url(#grid)"/>
+                    <rect width="1000" height="620" fill="url(#grid)"/>
 
                     <!-- Axes -->
                     <line x1="100" y1="500" x2="900" y2="500" stroke="var(--primary)" stroke-width="3"/>
@@ -412,31 +412,33 @@
                     <path d="M 850 260 L 850 500 L 900 500 L 900 100 L 720 100 L 720 260 Z" 
                           fill="#757575" opacity="0.8" class="phase-area" data-phase="Fe₃C"/>
 
-                    <!-- IMPORTANT TEMPERATURE LINES with labels -->
+                    <!-- IMPORTANT TEMPERATURE LINES with labels - REPOSITIONED -->
                     
                     <!-- 1538°C - Melting point of pure Fe -->
                     <line x1="100" y1="50" x2="110" y2="50" stroke="#d32f2f" stroke-width="2"/>
-                    <text x="60" y="55" class="diagram-label" font-size="11" fill="#d32f2f" text-anchor="end">1538°C</text>
+                    <text x="50" y="55" class="diagram-label" font-size="10" fill="#d32f2f" text-anchor="end">1538</text>
                     
                     <!-- 1493°C - Peritectic -->
                     <line x1="100" y1="73" x2="220" y2="73" stroke="#1976d2" stroke-width="2" stroke-dasharray="3,3"/>
-                    <text x="60" y="78" class="diagram-label" font-size="11" fill="#1976d2" text-anchor="end">1493°C</text>
+                    <text x="50" y="78" class="diagram-label" font-size="10" fill="#1976d2" text-anchor="end">1493</text>
                     
                     <!-- 1394°C - Delta to Gamma -->
                     <line x1="100" y1="118" x2="115" y2="118" stroke="#7b1fa2" stroke-width="2" stroke-dasharray="3,3"/>
-                    <text x="60" y="123" class="diagram-label" font-size="11" fill="#7b1fa2" text-anchor="end">1394°C</text>
+                    <text x="50" y="123" class="diagram-label" font-size="10" fill="#7b1fa2" text-anchor="end">1394</text>
                     
                     <!-- 1147°C - Eutectic -->
                     <line x1="520" y1="187" x2="900" y2="187" stroke="#e65100" stroke-width="2.5" stroke-dasharray="5,3"/>
-                    <text x="920" y="192" class="diagram-label" font-size="12" fill="#e65100" font-weight="600">1147°C (Eutectic)</text>
+                    <text x="915" y="175" class="diagram-label" font-size="11" fill="#e65100" font-weight="600">1147°C</text>
+                    <text x="915" y="187" class="diagram-label" font-size="10" fill="#e65100">(Eutectic)</text>
                     
                     <!-- 912°C - A3 for pure Fe -->
                     <line x1="100" y1="312" x2="115" y2="312" stroke="#0288d1" stroke-width="2" stroke-dasharray="3,3"/>
-                    <text x="60" y="317" class="diagram-label" font-size="11" fill="#0288d1" text-anchor="end">912°C</text>
+                    <text x="50" y="317" class="diagram-label" font-size="10" fill="#0288d1" text-anchor="end">912</text>
                     
                     <!-- 727°C - Eutectoid (A1) - MOST IMPORTANT -->
                     <line x1="100" y1="360" x2="850" y2="360" stroke="#c62828" stroke-width="3.5" stroke-dasharray="8,4"/>
-                    <text x="920" y="365" class="diagram-label" font-size="13" fill="#c62828" font-weight="700">727°C (A₁)</text>
+                    <text x="915" y="350" class="diagram-label" font-size="12" fill="#c62828" font-weight="700">727°C</text>
+                    <text x="915" y="363" class="diagram-label" font-size="10" fill="#c62828" font-weight="600">(A₁)</text>
 
                     <!-- A3 line (Ferrite-Austenite boundary) -->
                     <polyline points="100,312 200,360" stroke="#0288d1" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
@@ -446,42 +448,45 @@
 
                     <!-- Steel vs Cast Iron boundary -->
                     <line x1="420" y1="50" x2="420" y2="500" stroke="#2e7d32" stroke-width="3" stroke-dasharray="8,5"/>
-                    <text x="260" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">← STEEL</text>
-                    <text x="560" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">CAST IRON →</text>
-                    <text x="425" y="520" class="diagram-label" font-size="11" fill="#2e7d32" text-anchor="start">2.14%</text>
+                    <text x="260" y="545" class="diagram-label" font-size="14" fill="#2e7d32" font-weight="700">← STEEL</text>
+                    <text x="560" y="545" class="diagram-label" font-size="14" fill="#2e7d32" font-weight="700">CAST IRON →</text>
+                    <text x="390" y="520" class="diagram-label" font-size="10" fill="#2e7d32" text-anchor="end">2.14%</text>
 
-                    <!-- Critical points with DETAILED LABELS -->
+                    <!-- Critical points with DETAILED LABELS - REPOSITIONED -->
                     
                     <!-- Peritectic Point -->
                     <circle cx="180" cy="160" r="7" fill="#1976d2" stroke="white" stroke-width="2"/>
-                    <text x="180" y="145" class="diagram-label" text-anchor="middle" font-size="13" font-weight="700" fill="#1976d2">Peritectic</text>
-                    <text x="180" y="132" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">0.16% C</text>
-                    <text x="180" y="120" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">1493°C</text>
+                    <text x="145" y="150" class="diagram-label" text-anchor="end" font-size="12" font-weight="700" fill="#1976d2">Peritectic</text>
+                    <text x="145" y="163" class="diagram-label" text-anchor="end" font-size="9" fill="#1976d2">0.16% C</text>
+                    <text x="145" y="175" class="diagram-label" text-anchor="end" font-size="9" fill="#1976d2">1493°C</text>
                     
                     <!-- Eutectoid Point -->
                     <circle cx="420" cy="360" r="9" fill="#c62828" stroke="white" stroke-width="3"/>
-                    <text x="420" y="340" class="diagram-label" text-anchor="middle" font-size="16" font-weight="700" fill="#c62828">EUTECTOID</text>
-                    <text x="420" y="325" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">0.76% C</text>
-                    <text x="420" y="312" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">727°C</text>
+                    <text x="420" y="330" class="diagram-label" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828">EUTECTOID</text>
+                    <text x="385" y="345" class="diagram-label" text-anchor="end" font-size="11" fill="#c62828" font-weight="600">0.76% C</text>
+                    <text x="455" y="345" class="diagram-label" text-anchor="start" font-size="11" fill="#c62828" font-weight="600">727°C</text>
 
                     <!-- Eutectic Point -->
                     <circle cx="720" cy="260" r="8" fill="#e65100" stroke="white" stroke-width="2"/>
-                    <text x="720" y="242" class="diagram-label" text-anchor="middle" font-size="14" font-weight="700" fill="#e65100">Eutectic</text>
-                    <text x="720" y="228" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">4.3% C</text>
-                    <text x="720" y="215" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">1147°C</text>
+                    <text x="755" y="248" class="diagram-label" text-anchor="start" font-size="13" font-weight="700" fill="#e65100">Eutectic</text>
+                    <text x="755" y="260" class="diagram-label" text-anchor="start" font-size="10" fill="#e65100">4.3% C</text>
+                    <text x="755" y="272" class="diagram-label" text-anchor="start" font-size="10" fill="#e65100">1147°C</text>
 
                     <!-- Maximum carbon solubility in Austenite -->
                     <circle cx="720" cy="187" r="6" fill="#ff6b6b" stroke="white" stroke-width="2"/>
-                    <text x="750" y="192" class="diagram-label" font-size="10" fill="#ff6b6b">2.14% C (max)</text>
+                    <text x="755" y="192" class="diagram-label" font-size="9" fill="#ff6b6b">2.14% max</text>
 
-                    <!-- Phase labels -->
-                    <text x="130" y="130" class="region-label" font-size="15" fill="#1565c0">δ-Ferrite</text>
-                    <text x="130" y="480" class="region-label" font-size="16" fill="#1565c0">α-Ferrite</text>
-                    <text x="350" y="220" class="region-label" font-size="18" fill="#fff" font-weight="700">Austenite (γ)</text>
-                    <text x="250" y="450" class="region-label" font-size="15" fill="#0d47a1">α + Fe₃C</text>
-                    <text x="150" y="90" class="region-label" font-size="15" fill="#f57f17">Liquid</text>
-                    <text x="870" y="380" class="region-label" font-size="15" fill="#fff" font-weight="600">Fe₃C</text>
-                    <text x="580" y="450" class="region-label" font-size="14" fill="#e65100">γ + Fe₃C</text>
+                    <!-- Phase labels - REPOSITIONED -->
+                    <text x="125" y="115" class="region-label" font-size="13" fill="#1565c0">δ-Fe</text>
+                    <text x="130" y="475" class="region-label" font-size="14" fill="#1565c0">α-Ferrite</text>
+                    <text x="350" y="220" class="region-label" font-size="16" fill="#fff" font-weight="700">Austenite (γ)</text>
+                    <text x="250" y="450" class="region-label" font-size="13" fill="#0d47a1">α + Fe₃C</text>
+                    <text x="150" y="85" class="region-label" font-size="13" fill="#f57f17">Liquid</text>
+                    <text x="870" y="380" class="region-label" font-size="13" fill="#fff" font-weight="600">Fe₃C</text>
+                    <text x="580" y="450" class="region-label" font-size="12" fill="#e65100">γ + Fe₃C</text>
+                    <text x="145" y="295" class="region-label" font-size="11" fill="#0d47a1">α+γ</text>
+                    <text x="620" y="160" class="region-label" font-size="11" fill="#ff9800">γ+L</text>
+                    <text x="140" y="110" class="region-label" font-size="11" fill="#1976d2">δ+L</text>
 
                     <!-- X-axis labels (Carbon %) with MORE detail -->
                     <text x="100" y="530" class="diagram-label" text-anchor="middle" font-weight="600">0</text>
@@ -511,21 +516,21 @@
                     <text x="850" y="530" class="diagram-label" text-anchor="middle" font-weight="600">6.67</text>
                     <line x1="850" y1="500" x2="850" y2="510" stroke="var(--primary)" stroke-width="2"/>
                     
-                    <text x="500" y="570" class="diagram-label" font-size="18" text-anchor="middle" font-weight="700">Carbon Content (wt %)</text>
+                    <text x="500" y="570" class="diagram-label" font-size="16" text-anchor="middle" font-weight="700">Carbon Content (wt %)</text>
 
                     <!-- Y-axis labels (Temperature) with MORE detail -->
-                    <text x="70" y="505" class="diagram-label" text-anchor="end" font-weight="600">0</text>
-                    <text x="70" y="450" class="diagram-label" text-anchor="end">200</text>
-                    <text x="70" y="400" class="diagram-label" text-anchor="end" font-weight="600">400</text>
-                    <text x="70" y="365" class="diagram-label" text-anchor="end" font-weight="700" fill="#c62828">727</text>
-                    <text x="70" y="315" class="diagram-label" text-anchor="end" font-weight="600" fill="#0288d1">912</text>
-                    <text x="70" y="250" class="diagram-label" text-anchor="end">1000</text>
-                    <text x="70" y="192" class="diagram-label" text-anchor="end" font-weight="600" fill="#e65100">1147</text>
-                    <text x="70" y="150" class="diagram-label" text-anchor="end">1300</text>
-                    <text x="70" y="78" class="diagram-label" text-anchor="end" font-weight="600" fill="#1976d2">1493</text>
-                    <text x="70" y="55" class="diagram-label" text-anchor="end" font-weight="600" fill="#d32f2f">1538</text>
+                    <text x="75" y="505" class="diagram-label" text-anchor="end" font-weight="600">0</text>
+                    <text x="75" y="450" class="diagram-label" text-anchor="end">200</text>
+                    <text x="75" y="400" class="diagram-label" text-anchor="end" font-weight="600">400</text>
+                    <text x="75" y="365" class="diagram-label" text-anchor="end" font-weight="700" fill="#c62828">727</text>
+                    <text x="75" y="315" class="diagram-label" text-anchor="end" font-weight="600" fill="#0288d1">912</text>
+                    <text x="75" y="250" class="diagram-label" text-anchor="end">1000</text>
+                    <text x="75" y="192" class="diagram-label" text-anchor="end" font-weight="600" fill="#e65100">1147</text>
+                    <text x="75" y="150" class="diagram-label" text-anchor="end">1300</text>
+                    <text x="75" y="78" class="diagram-label" text-anchor="end" font-weight="600" fill="#1976d2">1493</text>
+                    <text x="75" y="55" class="diagram-label" text-anchor="end" font-weight="600" fill="#d32f2f">1538</text>
                     
-                    <text x="30" y="300" class="diagram-label" text-anchor="middle" font-size="18" font-weight="700" transform="rotate(-90 30 300)">Temperature (°C)</text>
+                    <text x="30" y="300" class="diagram-label" text-anchor="middle" font-size="16" font-weight="700" transform="rotate(-90 30 300)">Temperature (°C)</text>
                 </svg>
 
 
