@@ -3,25 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iron-Carbon Phase Diagram | Materials Science</title>
+    <title>Iron-Carbon Phase Diagram | Simple Guide</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@300;400;600&display=swap');
-
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #e94560;
-            --accent-light: #ff6b9d;
-            --bg-dark: #0f0f1e;
-            --text-light: #f0f0f0;
-            --text-dark: #2d2d2d;
-            --card-bg: #ffffff;
-            --border: #e0e0e0;
-            --ferrite: #87ceeb;
-            --austenite: #ff6b6b;
-            --cementite: #4a4a4a;
-            --pearlite: #ffd700;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         * {
             margin: 0;
@@ -29,428 +13,272 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #34495e;
+            --primary-lighter: #506278;
+            --primary-dark: #1a252f;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #e0e0e0;
+            --accent: #95a5a6;
+        }
+
         body {
-            font-family: 'Crimson Pro', serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 50%, var(--secondary) 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         header {
             text-align: center;
-            padding: 80px 40px;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 0 0 40px 40px;
-            margin-bottom: 60px;
-            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--accent), 
-                var(--accent-light), 
-                var(--accent), 
-                transparent);
-            animation: shimmer 3s infinite;
+            padding: 60px 20px;
+            background: var(--card);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
         }
 
         h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 4.5em;
+            font-size: 3em;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 15px;
-            letter-spacing: -2px;
-            font-weight: 400;
-        }
-
-        .subtitle {
-            font-size: 1.6em;
-            color: var(--accent);
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin-top: 15px;
-        }
-
-        .author-info {
-            margin-top: 25px;
-            font-size: 1.1em;
-            color: #666;
-            font-style: italic;
-        }
-
-        .section {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeInUp 0.9s ease-out forwards;
-            border: 1px solid var(--border);
-        }
-
-        .section:nth-child(odd) {
-            animation-delay: 0.1s;
-        }
-
-        .section:nth-child(even) {
-            animation-delay: 0.2s;
-        }
-
-        h2 {
-            font-family: 'DM Serif Display', serif;
-            color: var(--primary);
-            font-size: 2.8em;
-            margin-bottom: 30px;
-            border-left: 6px solid var(--accent);
-            padding-left: 25px;
-            font-weight: 400;
+            margin-bottom: 16px;
             letter-spacing: -1px;
         }
 
-        h3 {
-            font-family: 'DM Serif Display', serif;
-            color: var(--secondary);
-            font-size: 2em;
-            margin: 35px 0 20px 0;
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--text-light);
             font-weight: 400;
         }
 
-        h4 {
-            font-family: 'Crimson Pro', serif;
-            color: var(--accent);
+        .section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h3 {
             font-size: 1.5em;
-            margin: 25px 0 15px 0;
             font-weight: 600;
+            color: var(--primary-light);
+            margin: 30px 0 16px 0;
         }
 
-        p, li {
-            font-size: 1.25em;
-            line-height: 1.9;
-            color: var(--text-dark);
-            margin-bottom: 18px;
+        p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 16px;
         }
 
-        .equation {
-            font-family: 'IBM Plex Mono', monospace;
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            padding: 25px;
+        .simple-box {
+            background: var(--bg);
+            padding: 24px;
             border-radius: 12px;
+            margin: 24px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .simple-box p {
+            margin-bottom: 8px;
+        }
+
+        /* Phase Diagram */
+        .diagram-wrapper {
+            background: var(--card);
+            padding: 40px 20px;
+            border-radius: 16px;
             margin: 30px 0;
-            border-left: 5px solid var(--accent);
-            font-size: 1.3em;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.2);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(44, 62, 80, 0.1);
         }
 
-        .equation::before {
-            content: '⚛';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3em;
-            opacity: 0.1;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 5px solid #2196f3;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 5px solid #ff9800;
-        }
-
-        .critical-box {
-            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 5px solid var(--accent);
-        }
-
-        /* Phase Diagram Canvas */
-        .diagram-container {
+        .phase-diagram {
             width: 100%;
-            height: 700px;
-            background: white;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-            border: 2px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto;
+            aspect-ratio: 16/10;
         }
 
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .phase-region {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .phase-region:hover {
-            opacity: 0.8;
-            filter: brightness(1.1);
-        }
-
-        .grid-line {
-            stroke: #e0e0e0;
-            stroke-width: 1;
-            opacity: 0.5;
-        }
-
-        .axis-line {
-            stroke: var(--primary);
-            stroke-width: 3;
-        }
-
-        .axis-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 16px;
+        .diagram-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
             font-weight: 600;
             fill: var(--primary);
         }
 
-        .phase-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 18px;
+        .region-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
             font-weight: 600;
-            pointer-events: none;
+            fill: var(--primary-dark);
         }
 
-        /* Microstructure Cards */
-        .microstructure-grid {
+        .phase-area {
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .phase-area:hover {
+            opacity: 0.7;
+        }
+
+        /* Simple Cards */
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 30px 0;
         }
 
-        .micro-card {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .micro-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .micro-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .micro-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent);
-        }
-
-        .micro-card h4 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        /* Crystal Structure Visualization */
-        .crystal-viz {
-            width: 100%;
-            height: 250px;
-            background: radial-gradient(circle, #f0f0f0 0%, #d0d0d0 100%);
+        .card {
+            background: var(--bg);
+            padding: 28px;
             border-radius: 12px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        /* Table Styling */
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+        }
+
+        .card h4 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 1.05em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--primary);
+        }
+
+        /* Table */
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 30px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+            margin: 24px 0;
         }
 
         th {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 16px;
             text-align: left;
             font-weight: 600;
-            font-size: 1.2em;
         }
 
         td {
-            padding: 18px 20px;
+            padding: 16px;
             border-bottom: 1px solid var(--border);
-            font-size: 1.15em;
         }
 
         tr:hover {
-            background: #f8f8f8;
+            background: var(--bg);
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Formula boxes */
-        .formula {
-            font-family: 'IBM Plex Mono', monospace;
-            background: #f5f5f5;
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
+        /* Simple list */
         ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
 
         ul li {
-            padding-left: 35px;
+            padding: 12px 0 12px 32px;
             position: relative;
-            margin-bottom: 15px;
+            font-size: 1.1em;
         }
 
         ul li::before {
-            content: '▸';
+            content: '●';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-        /* Interactive Graph */
-        .interactive-graph {
-            width: 100%;
-            height: 500px;
-            background: white;
-            border-radius: 15px;
-            margin: 30px 0;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .tooltip {
-            position: absolute;
-            background: rgba(26, 26, 46, 0.95);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1000;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        /* Annotations */
-        .annotation {
-            background: var(--accent);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            display: inline-block;
-            margin: 5px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .key-point {
-            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
-            border-left: 5px solid #fbc02d;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 25px 0;
+            color: var(--primary);
             font-size: 1.2em;
         }
 
-        .key-point strong {
-            color: #f57c00;
-        }
-
-        /* Legend */
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 25px 0;
-            padding: 25px;
-            background: #f8f8f8;
+        .reaction-box {
+            background: var(--primary);
+            color: white;
+            padding: 24px;
             border-radius: 12px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'IBM Plex Mono', monospace;
+            margin: 24px 0;
+            font-size: 1.3em;
+            text-align: center;
             font-weight: 600;
         }
 
-        .legend-color {
-            width: 30px;
-            height: 30px;
-            border-radius: 6px;
-            border: 2px solid var(--text-dark);
+        .reaction-box small {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.8em;
+            opacity: 0.9;
+            font-weight: 400;
         }
 
-        @keyframes fadeInUp {
+        .highlight {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .number-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -458,76 +286,48 @@
             }
         }
 
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-
         footer {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             color: var(--text-light);
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
-        .badge {
-            background: var(--accent);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            display: inline-block;
-            margin-left: 10px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5em;
+                font-size: 2em;
             }
 
             .section {
-                padding: 30px 25px;
+                padding: 24px;
             }
 
-            .diagram-container {
-                height: 500px;
-            }
-
-            .microstructure-grid {
+            .card-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Phase transition animation */
-        .phase-transition {
-            stroke-dasharray: 10, 5;
-            animation: dash 20s linear infinite;
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: var(--primary-dark);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+            white-space: nowrap;
         }
 
-        @keyframes dash {
-            to {
-                stroke-dashoffset: -1000;
-            }
+        .diagram-note {
+            text-align: center;
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-top: 16px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -535,769 +335,711 @@
     <div class="container">
         <header>
             <h1>Iron-Carbon Phase Diagram</h1>
-            <p class="subtitle">Metallurgical Equilibrium & Microstructural Evolution</p>
-            <p class="author-info">Advanced Materials Science | Undergraduate Level</p>
+            <p class="subtitle">A Simple Visual Guide</p>
         </header>
 
-        <!-- Introduction -->
+        <!-- What is it? -->
         <div class="section">
-            <h2>1. Introduction to Phase Diagrams</h2>
-            <p>The <strong>Iron-Carbon (Fe-C) phase diagram</strong>, also known as the <strong>Fe-Fe₃C diagram</strong>, is a fundamental tool in materials science and metallurgical engineering. It represents the <strong>equilibrium</strong> phases present in Fe-C alloys at different temperatures and compositions under slow cooling conditions.</p>
+            <h2>What is This Diagram?</h2>
+            <p>The Iron-Carbon Phase Diagram is like a <strong>map</strong> that shows what happens to iron when you:</p>
+            <ul>
+                <li>Add different amounts of carbon (0% to 6.67%)</li>
+                <li>Change the temperature (from room temp to 1600°C)</li>
+            </ul>
             
-            <div class="highlight-box">
-                <h4>📚 What Does This Diagram Tell Us?</h4>
-                <ul>
-                    <li>The <strong>equilibrium phases</strong> present at any given temperature and carbon concentration</li>
-                    <li>The <strong>phase transformations</strong> that occur during heating and cooling</li>
-                    <li>The <strong>composition limits</strong> that define steel versus cast iron</li>
-                    <li>The <strong>microstructural constituents</strong> that determine mechanical properties</li>
-                </ul>
+            <div class="simple-box">
+                <p><strong>Think of it this way:</strong></p>
+                <p>Just like water can be ice, liquid, or steam depending on temperature, iron can be different "phases" depending on temperature AND carbon content.</p>
             </div>
 
-            <p>This diagram is limited to carbon concentrations up to <strong>6.67 wt% C</strong> (the composition of cementite, Fe₃C), as this represents the practical upper limit for commercial Fe-C alloys.</p>
-
-            <div class="critical-box">
-                <h4>⚠️ Important Assumption: Equilibrium Conditions</h4>
-                <p>This is an <strong>equilibrium diagram</strong>, meaning it assumes infinitely slow cooling rates that allow the system to reach thermodynamic equilibrium at each temperature. In practice, cooling rates affect the final microstructure, leading to non-equilibrium phases (e.g., martensite in quenched steels).</p>
-            </div>
+            <p>This diagram tells us:</p>
+            <ul>
+                <li>What structure the iron has</li>
+                <li>How hard or soft it will be</li>
+                <li>Whether it's steel or cast iron</li>
+            </ul>
         </div>
 
-        <!-- The Actual Phase Diagram -->
+        <!-- The Diagram -->
         <div class="section">
-            <h2>2. The Iron-Carbon Phase Diagram</h2>
+            <h2>The Phase Diagram</h2>
             
-            <div class="diagram-container">
-                <svg id="phaseDiagram" viewBox="0 0 1200 650">
-                    <!-- Grid Lines -->
-                    <g id="grid">
-                        <!-- Vertical grid lines -->
-                        <line x1="150" y1="50" x2="150" y2="550" class="grid-line"/>
-                        <line x1="300" y1="50" x2="300" y2="550" class="grid-line"/>
-                        <line x1="450" y1="50" x2="450" y2="550" class="grid-line"/>
-                        <line x1="600" y1="50" x2="600" y2="550" class="grid-line"/>
-                        <line x1="750" y1="50" x2="750" y2="550" class="grid-line"/>
-                        <line x1="900" y1="50" x2="900" y2="550" class="grid-line"/>
-                        <line x1="1050" y1="50" x2="1050" y2="550" class="grid-line"/>
-                        
-                        <!-- Horizontal grid lines -->
-                        <line x1="100" y1="100" x2="1100" y2="100" class="grid-line"/>
-                        <line x1="100" y1="200" x2="1100" y2="200" class="grid-line"/>
-                        <line x1="100" y1="300" x2="1100" y2="300" class="grid-line"/>
-                        <line x1="100" y1="400" x2="1100" y2="400" class="grid-line"/>
-                        <line x1="100" y1="500" x2="1100" y2="500" class="grid-line"/>
-                    </g>
+            <div class="diagram-wrapper">
+                <svg class="phase-diagram" viewBox="0 0 1000 600">
+                    <!-- Background grid -->
+                    <defs>
+                        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" stroke-width="1" opacity="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="1000" height="600" fill="url(#grid)"/>
 
                     <!-- Axes -->
-                    <line x1="100" y1="550" x2="1100" y2="550" class="axis-line"/>
-                    <line x1="100" y1="550" x2="100" y2="50" class="axis-line"/>
+                    <line x1="100" y1="500" x2="900" y2="500" stroke="var(--primary)" stroke-width="3"/>
+                    <line x1="100" y1="500" x2="100" y2="50" stroke="var(--primary)" stroke-width="3"/>
 
-                    <!-- Phase Regions -->
-                    <!-- Liquid -->
-                    <path d="M 100 50 L 250 50 L 580 140 L 800 110 L 1100 120 L 1100 50 Z" 
-                          fill="#ff9999" opacity="0.6" class="phase-region" data-phase="Liquid"/>
+                    <!-- Phase regions with COLORS -->
                     
-                    <!-- Delta Ferrite + Liquid -->
-                    <path d="M 100 50 L 100 180 L 195 185 L 250 50 Z" 
-                          fill="#9999ff" opacity="0.5" class="phase-region" data-phase="δ + L"/>
+                    <!-- Liquid (light yellow) -->
+                    <path d="M 100 50 L 220 50 L 520 120 L 720 100 L 900 100 L 900 50 Z" 
+                          fill="#fff9c4" opacity="0.9" class="phase-area" data-phase="Liquid"/>
                     
-                    <!-- Austenite -->
-                    <path d="M 195 185 L 205 280 L 450 380 L 800 280 L 800 110 L 580 140 L 250 50 L 195 185 Z" 
-                          fill="#ff6b6b" opacity="0.6" class="phase-region" data-phase="Austenite (γ)"/>
+                    <!-- Delta + Liquid -->
+                    <path d="M 100 50 L 100 160 L 180 160 L 220 50 Z" 
+                          fill="#b3e5fc" opacity="0.8" class="phase-area" data-phase="δ + L"/>
+                    
+                    <!-- Austenite (red/orange) -->
+                    <path d="M 180 160 L 200 260 L 420 360 L 720 260 L 720 100 L 520 120 L 220 50 L 180 160 Z" 
+                          fill="#ff6b6b" opacity="0.7" class="phase-area" data-phase="Austenite (γ)"/>
                     
                     <!-- Ferrite + Austenite -->
-                    <path d="M 100 180 L 100 425 L 205 380 L 205 280 L 195 185 Z" 
-                          fill="#87ceeb" opacity="0.5" class="phase-region" data-phase="α + γ"/>
+                    <path d="M 100 160 L 100 400 L 200 360 L 200 260 L 180 160 Z" 
+                          fill="#90caf9" opacity="0.7" class="phase-area" data-phase="α + γ"/>
                     
-                    <!-- Ferrite + Cementite (Pearlite region) -->
-                    <path d="M 100 425 L 100 550 L 450 550 L 450 380 L 205 380 Z" 
-                          fill="#ffd700" opacity="0.6" class="phase-region" data-phase="α + Fe₃C"/>
+                    <!-- Ferrite + Cementite (blue) -->
+                    <path d="M 100 400 L 100 500 L 420 500 L 420 360 L 200 360 Z" 
+                          fill="#64b5f6" opacity="0.7" class="phase-area" data-phase="α + Fe₃C"/>
                     
-                    <!-- Austenite + Cementite -->
-                    <path d="M 450 380 L 450 550 L 1050 550 L 1050 280 L 800 280 Z" 
-                          fill="#ffb347" opacity="0.5" class="phase-region" data-phase="γ + Fe₃C"/>
+                    <!-- Austenite + Cementite (yellow-orange) -->
+                    <path d="M 420 360 L 420 500 L 850 500 L 850 260 L 720 260 Z" 
+                          fill="#ffb74d" opacity="0.7" class="phase-area" data-phase="γ + Fe₃C"/>
                     
                     <!-- Austenite + Liquid -->
-                    <path d="M 580 140 L 800 110 L 800 280 Z" 
-                          fill="#ff99cc" opacity="0.5" class="phase-region" data-phase="γ + L"/>
+                    <path d="M 520 120 L 720 100 L 720 260 Z" 
+                          fill="#ffcc80" opacity="0.7" class="phase-area" data-phase="γ + L"/>
                     
-                    <!-- Cementite region -->
-                    <path d="M 1050 280 L 1050 550 L 1100 550 L 1100 120 L 800 110 L 800 280 Z" 
-                          fill="#4a4a4a" opacity="0.7" class="phase-region" data-phase="Fe₃C"/>
+                    <!-- Cementite (dark grey) -->
+                    <path d="M 850 260 L 850 500 L 900 500 L 900 100 L 720 100 L 720 260 Z" 
+                          fill="#757575" opacity="0.8" class="phase-area" data-phase="Fe₃C"/>
 
-                    <!-- Critical Lines -->
-                    <!-- A3 line -->
-                    <polyline points="205,380 450,380" stroke="#000" stroke-width="2.5" class="phase-transition"/>
-                    <!-- A1 line (eutectoid) -->
-                    <line x1="100" y1="380" x2="1050" y2="380" stroke="#e94560" stroke-width="3" stroke-dasharray="5,5"/>
-                    <!-- Acm line -->
-                    <polyline points="450,380 1050,280" stroke="#000" stroke-width="2.5" class="phase-transition"/>
-
-                    <!-- Important Points -->
-                    <!-- Eutectoid point -->
-                    <circle cx="450" cy="380" r="8" fill="#e94560" stroke="#000" stroke-width="2"/>
-                    <text x="470" y="370" font-size="13" font-weight="bold" fill="#e94560" text-anchor="start">Eutectoid</text>
-                    <text x="470" y="385" font-size="11" fill="#000" text-anchor="start">(0.76% C, 727°C)</text>
+                    <!-- IMPORTANT TEMPERATURE LINES with labels -->
                     
-                    <!-- Eutectic point -->
-                    <circle cx="800" cy="280" r="8" fill="#ff6b00" stroke="#000" stroke-width="2"/>
-                    <text x="820" y="270" font-size="13" font-weight="bold" fill="#ff6b00" text-anchor="start">Eutectic</text>
-                    <text x="820" y="285" font-size="11" fill="#000" text-anchor="start">(4.3% C, 1147°C)</text>
+                    <!-- 1538°C - Melting point of pure Fe -->
+                    <line x1="100" y1="50" x2="110" y2="50" stroke="#d32f2f" stroke-width="2"/>
+                    <text x="60" y="55" class="diagram-label" font-size="11" fill="#d32f2f" text-anchor="end">1538°C</text>
+                    
+                    <!-- 1493°C - Peritectic -->
+                    <line x1="100" y1="73" x2="220" y2="73" stroke="#1976d2" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="78" class="diagram-label" font-size="11" fill="#1976d2" text-anchor="end">1493°C</text>
+                    
+                    <!-- 1394°C - Delta to Gamma -->
+                    <line x1="100" y1="118" x2="115" y2="118" stroke="#7b1fa2" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="123" class="diagram-label" font-size="11" fill="#7b1fa2" text-anchor="end">1394°C</text>
+                    
+                    <!-- 1147°C - Eutectic -->
+                    <line x1="520" y1="187" x2="900" y2="187" stroke="#e65100" stroke-width="2.5" stroke-dasharray="5,3"/>
+                    <text x="920" y="192" class="diagram-label" font-size="12" fill="#e65100" font-weight="600">1147°C (Eutectic)</text>
+                    
+                    <!-- 912°C - A3 for pure Fe -->
+                    <line x1="100" y1="312" x2="115" y2="312" stroke="#0288d1" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="60" y="317" class="diagram-label" font-size="11" fill="#0288d1" text-anchor="end">912°C</text>
+                    
+                    <!-- 727°C - Eutectoid (A1) - MOST IMPORTANT -->
+                    <line x1="100" y1="360" x2="850" y2="360" stroke="#c62828" stroke-width="3.5" stroke-dasharray="8,4"/>
+                    <text x="920" y="365" class="diagram-label" font-size="13" fill="#c62828" font-weight="700">727°C (A₁)</text>
 
-                    <!-- Peritectic point -->
-                    <circle cx="195" cy="185" r="8" fill="#0066cc" stroke="#000" stroke-width="2"/>
-                    <text x="210" y="175" font-size="13" font-weight="bold" fill="#0066cc" text-anchor="start">Peritectic</text>
-                    <text x="210" y="190" font-size="11" fill="#000" text-anchor="start">(0.16% C, 1493°C)</text>
-
-                    <!-- Phase Labels - repositioned to avoid overlap -->
-                    <text x="140" y="120" class="phase-label" fill="#333" font-size="16">δ-Fe</text>
-                    <text x="400" y="220" class="phase-label" fill="#fff" font-size="18">Austenite (γ)</text>
-                    <text x="140" y="490" class="phase-label" fill="#333" font-size="16">α-Ferrite</text>
-                    <text x="280" y="480" class="phase-label" fill="#333" font-size="14">α + Fe₃C</text>
-                    <text x="700" y="460" class="phase-label" fill="#333" font-size="14">γ + Fe₃C</text>
-                    <text x="950" y="180" class="phase-label" fill="#fff" font-size="16">Fe₃C</text>
-                    <text x="160" y="310" class="phase-label" fill="#333" font-size="13">α + γ</text>
-                    <text x="680" y="180" class="phase-label" fill="#333" font-size="13">γ + L</text>
-                    <text x="145" y="95" class="phase-label" fill="#333" font-size="12">δ + L</text>
-                    <text x="350" y="90" class="phase-label" fill="#333" font-size="14">Liquid</text>
-
-                    <!-- X-axis labels -->
-                    <text x="100" y="580" class="axis-label" text-anchor="middle">0</text>
-                    <text x="300" y="580" class="axis-label" text-anchor="middle">1</text>
-                    <text x="450" y="580" class="axis-label" text-anchor="middle">2</text>
-                    <text x="600" y="580" class="axis-label" text-anchor="middle">3</text>
-                    <text x="750" y="580" class="axis-label" text-anchor="middle">4</text>
-                    <text x="900" y="580" class="axis-label" text-anchor="middle">5</text>
-                    <text x="1050" y="580" class="axis-label" text-anchor="middle">6.67</text>
-                    <text x="600" y="620" class="axis-label" text-anchor="middle" font-size="20">Carbon Content (wt %)</text>
-
-                    <!-- Y-axis labels -->
-                    <text x="70" y="555" class="axis-label" text-anchor="end">0</text>
-                    <text x="70" y="450" class="axis-label" text-anchor="end">400</text>
-                    <text x="70" y="350" class="axis-label" text-anchor="end">800</text>
-                    <text x="70" y="250" class="axis-label" text-anchor="end">1200</text>
-                    <text x="70" y="150" class="axis-label" text-anchor="end">1600</text>
-                    <text x="30" y="300" class="axis-label" text-anchor="middle" font-size="20" transform="rotate(-90 30 300)">Temperature (°C)</text>
+                    <!-- A3 line (Ferrite-Austenite boundary) -->
+                    <polyline points="100,312 200,360" stroke="#0288d1" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+                    
+                    <!-- Acm line (Austenite-Cementite boundary) -->
+                    <polyline points="420,360 850,187" stroke="#f57c00" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
 
                     <!-- Steel vs Cast Iron boundary -->
-                    <line x1="450" y1="50" x2="450" y2="550" stroke="#00aa00" stroke-width="3" stroke-dasharray="10,5"/>
-                    <text x="340" y="35" fill="#00aa00" font-weight="bold" font-size="15">← Steel</text>
-                    <text x="520" y="35" fill="#00aa00" font-weight="bold" font-size="15">Cast Iron →</text>
-                    <text x="450" y="605" fill="#00aa00" font-weight="bold" font-size="13" text-anchor="middle">(2.14% C)</text>
+                    <line x1="420" y1="50" x2="420" y2="500" stroke="#2e7d32" stroke-width="3" stroke-dasharray="8,5"/>
+                    <text x="260" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">← STEEL</text>
+                    <text x="560" y="540" class="diagram-label" font-size="16" fill="#2e7d32" font-weight="700">CAST IRON →</text>
+                    <text x="425" y="520" class="diagram-label" font-size="11" fill="#2e7d32" text-anchor="start">2.14%</text>
+
+                    <!-- Critical points with DETAILED LABELS -->
+                    
+                    <!-- Peritectic Point -->
+                    <circle cx="180" cy="160" r="7" fill="#1976d2" stroke="white" stroke-width="2"/>
+                    <text x="180" y="145" class="diagram-label" text-anchor="middle" font-size="13" font-weight="700" fill="#1976d2">Peritectic</text>
+                    <text x="180" y="132" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">0.16% C</text>
+                    <text x="180" y="120" class="diagram-label" text-anchor="middle" font-size="10" fill="#1976d2">1493°C</text>
+                    
+                    <!-- Eutectoid Point -->
+                    <circle cx="420" cy="360" r="9" fill="#c62828" stroke="white" stroke-width="3"/>
+                    <text x="420" y="340" class="diagram-label" text-anchor="middle" font-size="16" font-weight="700" fill="#c62828">EUTECTOID</text>
+                    <text x="420" y="325" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">0.76% C</text>
+                    <text x="420" y="312" class="diagram-label" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">727°C</text>
+
+                    <!-- Eutectic Point -->
+                    <circle cx="720" cy="260" r="8" fill="#e65100" stroke="white" stroke-width="2"/>
+                    <text x="720" y="242" class="diagram-label" text-anchor="middle" font-size="14" font-weight="700" fill="#e65100">Eutectic</text>
+                    <text x="720" y="228" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">4.3% C</text>
+                    <text x="720" y="215" class="diagram-label" text-anchor="middle" font-size="11" fill="#e65100">1147°C</text>
+
+                    <!-- Maximum carbon solubility in Austenite -->
+                    <circle cx="720" cy="187" r="6" fill="#ff6b6b" stroke="white" stroke-width="2"/>
+                    <text x="750" y="192" class="diagram-label" font-size="10" fill="#ff6b6b">2.14% C (max)</text>
+
+                    <!-- Phase labels -->
+                    <text x="130" y="130" class="region-label" font-size="15" fill="#1565c0">δ-Ferrite</text>
+                    <text x="130" y="480" class="region-label" font-size="16" fill="#1565c0">α-Ferrite</text>
+                    <text x="350" y="220" class="region-label" font-size="18" fill="#fff" font-weight="700">Austenite (γ)</text>
+                    <text x="250" y="450" class="region-label" font-size="15" fill="#0d47a1">α + Fe₃C</text>
+                    <text x="150" y="90" class="region-label" font-size="15" fill="#f57f17">Liquid</text>
+                    <text x="870" y="380" class="region-label" font-size="15" fill="#fff" font-weight="600">Fe₃C</text>
+                    <text x="580" y="450" class="region-label" font-size="14" fill="#e65100">γ + Fe₃C</text>
+
+                    <!-- X-axis labels (Carbon %) with MORE detail -->
+                    <text x="100" y="530" class="diagram-label" text-anchor="middle" font-weight="600">0</text>
+                    <line x1="100" y1="500" x2="100" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="180" y="530" class="diagram-label" text-anchor="middle">0.5</text>
+                    <line x1="180" y1="500" x2="180" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="260" y="530" class="diagram-label" text-anchor="middle" font-weight="600">1</text>
+                    <line x1="260" y1="500" x2="260" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="340" y="530" class="diagram-label" text-anchor="middle">1.5</text>
+                    <line x1="340" y1="500" x2="340" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="420" y="530" class="diagram-label" text-anchor="middle" font-weight="600" fill="#2e7d32">2.14</text>
+                    <line x1="420" y1="500" x2="420" y2="510" stroke="#2e7d32" stroke-width="2"/>
+                    
+                    <text x="500" y="530" class="diagram-label" text-anchor="middle">3</text>
+                    <line x1="500" y1="500" x2="500" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="580" y="530" class="diagram-label" text-anchor="middle">4</text>
+                    <line x1="580" y1="500" x2="580" y2="505" stroke="var(--primary)" stroke-width="1"/>
+                    
+                    <text x="720" y="530" class="diagram-label" text-anchor="middle" font-weight="600" fill="#e65100">4.3</text>
+                    <line x1="720" y1="500" x2="720" y2="510" stroke="#e65100" stroke-width="2"/>
+                    
+                    <text x="850" y="530" class="diagram-label" text-anchor="middle" font-weight="600">6.67</text>
+                    <line x1="850" y1="500" x2="850" y2="510" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <text x="500" y="570" class="diagram-label" font-size="18" text-anchor="middle" font-weight="700">Carbon Content (wt %)</text>
+
+                    <!-- Y-axis labels (Temperature) with MORE detail -->
+                    <text x="70" y="505" class="diagram-label" text-anchor="end" font-weight="600">0</text>
+                    <text x="70" y="450" class="diagram-label" text-anchor="end">200</text>
+                    <text x="70" y="400" class="diagram-label" text-anchor="end" font-weight="600">400</text>
+                    <text x="70" y="365" class="diagram-label" text-anchor="end" font-weight="700" fill="#c62828">727</text>
+                    <text x="70" y="315" class="diagram-label" text-anchor="end" font-weight="600" fill="#0288d1">912</text>
+                    <text x="70" y="250" class="diagram-label" text-anchor="end">1000</text>
+                    <text x="70" y="192" class="diagram-label" text-anchor="end" font-weight="600" fill="#e65100">1147</text>
+                    <text x="70" y="150" class="diagram-label" text-anchor="end">1300</text>
+                    <text x="70" y="78" class="diagram-label" text-anchor="end" font-weight="600" fill="#1976d2">1493</text>
+                    <text x="70" y="55" class="diagram-label" text-anchor="end" font-weight="600" fill="#d32f2f">1538</text>
+                    
+                    <text x="30" y="300" class="diagram-label" text-anchor="middle" font-size="18" font-weight="700" transform="rotate(-90 30 300)">Temperature (°C)</text>
                 </svg>
-            </div>
 
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #ff6b6b;"></div>
-                    <span>Austenite (γ)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #87ceeb;"></div>
-                    <span>Ferrite (α, δ)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #ffd700;"></div>
-                    <span>Ferrite + Cementite</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #4a4a4a;"></div>
-                    <span>Cementite (Fe₃C)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #ff9999;"></div>
-                    <span>Liquid</span>
-                </div>
-            </div>
 
-            <div class="key-point">
-                <strong>Key Observation:</strong> The vertical line at <strong>2.14 wt% C</strong> divides steels (left) from cast irons (right). The eutectoid composition at <strong>0.76 wt% C</strong> represents the most important transformation in steel metallurgy.
             </div>
         </div>
 
-        <!-- Coordinate System -->
+        <!-- Simple Explanation of Axes -->
         <div class="section">
-            <h2>3. Axes and Coordinate System</h2>
+            <h2>Understanding the Axes</h2>
             
-            <h3>X-Axis: Carbon Concentration</h3>
-            <p>The horizontal axis represents the <strong>weight percentage of carbon</strong> in the alloy, ranging from <strong>0% (pure iron)</strong> to <strong>6.67% (pure cementite, Fe₃C)</strong>.</p>
-            
-            <div class="equation">
-                Carbon Content (wt%) = [Mass of C / (Mass of C + Mass of Fe)] × 100
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Horizontal Axis (X)</h4>
+                    <p><strong>Carbon Percentage (0 to 6.67%)</strong></p>
+                    <p>• More carbon = Harder material</p>
+                    <p>• Less carbon = Softer material</p>
+                </div>
+
+                <div class="card">
+                    <h4>Vertical Axis (Y)</h4>
+                    <p><strong>Temperature (°C)</strong></p>
+                    <p>• Higher temp = Different structure</p>
+                    <p>• As you cool down, iron changes</p>
+                </div>
             </div>
 
-            <h3>Y-Axis: Temperature</h3>
-            <p>The vertical axis represents <strong>temperature in degrees Celsius (°C)</strong>, typically ranging from room temperature to approximately <strong>1600°C</strong> (above the melting point of pure iron).</p>
+        </div>
+
+        <!-- The Phases (Simple) -->
+        <div class="section">
+            <h2>The Main Phases (What Iron Becomes)</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="number-badge">1</span>Ferrite (α-iron)</h4>
+                    
+                    <!-- 3D BCC Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="atomBlue" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1976d2;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="atomRed" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Cube back edges (lighter) -->
+                        <line x1="80" y1="60" x2="150" y2="35" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="35" x2="220" y2="60" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="60" x2="220" y2="130" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="130" x2="150" y2="155" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="155" x2="80" y2="130" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        <line x1="80" y1="130" x2="80" y2="60" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+                        
+                        <!-- Connecting edges -->
+                        <line x1="80" y1="60" x2="95" y2="80" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="150" y1="35" x2="165" y2="55" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="220" y1="60" x2="205" y2="80" stroke="#546e7a" stroke-width="2.5"/>
+                        <line x1="220" y1="130" x2="205" y2="150" stroke="#546e7a" stroke-width="2.5"/>
+                        
+                        <!-- Cube front edges (darker) -->
+                        <line x1="95" y1="80" x2="165" y2="55" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="55" x2="205" y2="80" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="80" x2="205" y2="150" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="150" x2="165" y2="175" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="175" x2="95" y2="200" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="200" x2="95" y2="130" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="95" y2="80" stroke="#37474f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="165" y2="155" stroke="#37474f" stroke-width="3"/>
+                        <line x1="165" y1="155" x2="205" y2="130" stroke="#37474f" stroke-width="3"/>
+                        <line x1="205" y1="130" x2="205" y2="80" stroke="#37474f" stroke-width="3"/>
+                        
+                        <!-- Corner atoms (8 corners) -->
+                        <circle cx="95" cy="80" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="55" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="205" cy="80" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="205" cy="150" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="95" cy="130" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="155" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="95" cy="200" r="11" fill="url(#atomBlue)"/>
+                        <circle cx="165" cy="175" r="11" fill="url(#atomBlue)"/>
+                        
+                        <!-- Center atom (body center) - LARGER & RED -->
+                        <circle cx="150" cy="115" r="15" fill="url(#atomRed)"/>
+                        <text x="150" y="121" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Fe</text>
+                        
+                        <!-- Label -->
+                        <text x="150" y="235" font-size="17" font-weight="bold" fill="#1976d2" text-anchor="middle">BCC Structure</text>
+                        <text x="150" y="255" font-size="12" fill="#666" text-anchor="middle">Body-Centered Cubic</text>
+                    </svg>
+                    
+                    <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-top: 10px;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Atoms/cell:</strong> 2</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Packing:</strong> 68%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Max 0.022%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Temp:</strong> Below 912°C</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Soft, bendable, magnetic</p>
+                    <p><strong>Example:</strong> Soft iron, mild steel</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">2</span>Austenite (γ-iron)</h4>
+                    
+                    <!-- 3D FCC Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="atomRed2" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ff9999;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="atomYellow" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fbc02d;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Cube back edges -->
+                        <line x1="80" y1="60" x2="150" y2="35" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="150" y1="35" x2="220" y2="60" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="60" x2="220" y2="130" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        <line x1="220" y1="130" x2="150" y2="155" stroke="#ffab91" stroke-width="2" opacity="0.4"/>
+                        
+                        <!-- Cube front edges -->
+                        <line x1="95" y1="80" x2="165" y2="55" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="55" x2="205" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="80" x2="205" y2="150" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="150" x2="165" y2="175" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="175" x2="95" y2="200" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="200" x2="95" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="165" y2="155" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="165" y1="155" x2="205" y2="130" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="205" y1="130" x2="205" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        <line x1="95" y1="130" x2="95" y2="80" stroke="#d32f2f" stroke-width="3"/>
+                        
+                        <!-- Corner atoms -->
+                        <circle cx="95" cy="80" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="55" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="205" cy="80" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="205" cy="150" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="95" cy="130" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="155" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="95" cy="200" r="10" fill="url(#atomRed2)"/>
+                        <circle cx="165" cy="175" r="10" fill="url(#atomRed2)"/>
+                        
+                        <!-- Face-centered atoms (6 faces) - LARGER & YELLOW -->
+                        <circle cx="130" cy="68" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="150" cy="105" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="185" cy="115" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="150" cy="145" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="130" cy="165" r="13" fill="url(#atomYellow)"/>
+                        <circle cx="110" cy="140" r="13" fill="url(#atomYellow)"/>
+                        
+                        <text x="150" y="235" font-size="17" font-weight="bold" fill="#d32f2f" text-anchor="middle">FCC Structure</text>
+                        <text x="150" y="255" font-size="12" fill="#666" text-anchor="middle">Face-Centered Cubic</text>
+                    </svg>
+                    
+                    <div style="background: #ffebee; padding: 12px; border-radius: 8px; margin-top: 10px;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Atoms/cell:</strong> 4</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Packing:</strong> 74%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Up to 2.14%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Temp:</strong> 912-1394°C</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Can hold more carbon, not magnetic</p>
+                    <p><strong>Important:</strong> This is where heat treatment starts!</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">3</span>Cementite (Fe₃C)</h4>
+                    
+                    <!-- 3D Orthorhombic Crystal Structure -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <radialGradient id="feAtom" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#9e9e9e;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#424242;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="cAtom" cx="30%" cy="30%">
+                                <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Orthorhombic structure (elongated rectangle) -->
+                        <!-- Back face -->
+                        <rect x="70" y="45" width="160" height="80" fill="none" stroke="#757575" stroke-width="2" opacity="0.3"/>
+                        
+                        <!-- Connecting lines -->
+                        <line x1="70" y1="45" x2="85" y2="65" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="230" y1="45" x2="245" y2="65" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="230" y1="125" x2="245" y2="145" stroke="#424242" stroke-width="2.5"/>
+                        <line x1="70" y1="125" x2="85" y2="145" stroke="#424242" stroke-width="2.5"/>
+                        
+                        <!-- Front face -->
+                        <rect x="85" y="65" width="160" height="80" fill="none" stroke="#212121" stroke-width="3.5"/>
+                        
+                        <!-- Iron atoms (Fe - larger, dark grey) -->
+                        <circle cx="110" cy="80" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="80" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="80" r="11" fill="url(#feAtom)"/>
+                        
+                        <circle cx="110" cy="105" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="105" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="105" r="11" fill="url(#feAtom)"/>
+                        
+                        <circle cx="110" cy="130" r="11" fill="url(#feAtom)"/>
+                        <circle cx="165" cy="130" r="11" fill="url(#feAtom)"/>
+                        <circle cx="220" cy="130" r="11" fill="url(#feAtom)"/>
+                        
+                        <!-- Carbon atoms (C - smaller, red) -->
+                        <circle cx="138" cy="92" r="8" fill="url(#cAtom)"/>
+                        <circle cx="193" cy="92" r="8" fill="url(#cAtom)"/>
+                        <circle cx="138" cy="118" r="8" fill="url(#cAtom)"/>
+                        <circle cx="193" cy="118" r="8" fill="url(#cAtom)"/>
+                        
+                        <!-- Labels on atoms -->
+                        <text x="165" y="109" font-size="9" font-weight="bold" fill="white" text-anchor="middle">Fe</text>
+                        <text x="138" y="96" font-size="8" font-weight="bold" fill="white" text-anchor="middle">C</text>
+                        
+                        <text x="165" y="175" font-size="17" font-weight="bold" fill="#424242" text-anchor="middle">Orthorhombic</text>
+                        <text x="165" y="195" font-size="13" fill="#666" text-anchor="middle">Fe₃C Formula</text>
+                        <text x="165" y="210" font-size="11" fill="#666" text-anchor="middle">(3 Fe : 1 C ratio)</text>
+                    </svg>
+                    
+                    <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; margin-top: 10px; border: 2px solid #757575;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Formula:</strong> Fe₃C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Carbon:</strong> Exactly 6.67%</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Hardness:</strong> ~800 HV</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Nature:</strong> Metastable</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>Properties:</strong> Very hard, very brittle</p>
+                    <p><strong>Note:</strong> Too brittle to use alone - needs ferrite</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="number-badge">4</span>Pearlite</h4>
+                    
+                    <!-- Lamellar structure diagram -->
+                    <svg viewBox="0 0 300 280" style="width: 100%; height: 220px; margin: 15px 0;">
+                        <defs>
+                            <linearGradient id="ferriteL" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#90caf9;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="cementiteL" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#616161;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#212121;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Layered structure with 3D depth -->
+                        <g transform="translate(50, 40)">
+                            <!-- Layer 1 -->
+                            <rect x="0" y="0" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 0 L 170 10 L 170 28 L 150 18 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="13" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 2 -->
+                            <rect x="0" y="18" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 18 L 170 28 L 170 38 L 150 28 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="33" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 3 -->
+                            <rect x="0" y="28" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 28 L 170 38 L 170 56 L 150 46 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="47" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 4 -->
+                            <rect x="0" y="46" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 46 L 170 56 L 170 66 L 150 56 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="61" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 5 -->
+                            <rect x="0" y="56" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 56 L 170 66 L 170 84 L 150 74 Z" fill="#64b5f6" opacity="0.7"/>
+                            <text x="175" y="75" font-size="10" fill="#1976d2" font-weight="600">Ferrite</text>
+                            
+                            <!-- Layer 6 -->
+                            <rect x="0" y="74" width="150" height="10" fill="url(#cementiteL)"/>
+                            <path d="M 150 74 L 170 84 L 170 94 L 150 84 Z" fill="#424242" opacity="0.7"/>
+                            <text x="175" y="89" font-size="10" fill="#424242" font-weight="600">Fe₃C</text>
+                            
+                            <!-- Layer 7 -->
+                            <rect x="0" y="84" width="150" height="18" fill="url(#ferriteL)"/>
+                            <path d="M 150 84 L 170 94 L 170 112 L 150 102 Z" fill="#64b5f6" opacity="0.7"/>
+                            
+                            <!-- Left depth edge -->
+                            <path d="M 0 0 L 20 10 L 20 112 L 0 102 Z" fill="#1976d2" opacity="0.4"/>
+                            
+                            <!-- Spacing label -->
+                            <line x1="-15" y1="28" x2="-15" y2="84" stroke="#f57c00" stroke-width="2"/>
+                            <line x1="-18" y1="28" x2="-12" y2="28" stroke="#f57c00" stroke-width="2"/>
+                            <line x1="-18" y1="84" x2="-12" y2="84" stroke="#f57c00" stroke-width="2"/>
+                            <text x="-30" y="60" font-size="9" fill="#f57c00" font-weight="600" transform="rotate(-90 -30 60)">~0.5-1 μm</text>
+                        </g>
+                        
+                        <text x="150" y="180" font-size="17" font-weight="bold" fill="#f57c00" text-anchor="middle">Lamellar Structure</text>
+                        <text x="150" y="200" font-size="12" fill="#666" text-anchor="middle">Alternating Layers</text>
+                    </svg>
+                    
+                    <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #f57c00;">
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Mix:</strong> 88% Ferrite + 12% Fe₃C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Forms at:</strong> 727°C</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Hardness:</strong> ~200 HV</p>
+                        <p style="font-size: 1em; margin: 5px 0;"><strong>Strength:</strong> ~400 MPa</p>
+                    </div>
+                    
+                    <p style="margin-top: 10px;"><strong>What it is:</strong> Mix of Ferrite + Cementite in layers</p>
+                    <p><strong>Properties:</strong> Good balance of strength and hardness</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Most Important Point -->
+        <div class="section">
+            <h2>The Most Important Point: Eutectoid</h2>
+
+            <div class="simple-box" style="border-left-color: var(--primary-dark); background: var(--primary); color: white;">
+                <h3 style="color: white; margin-top: 0;">The Magic Spot: 0.76% Carbon at 727°C</h3>
+                <p style="color: white; font-size: 1.2em;">This is THE most important point in steel making!</p>
+            </div>
+
+            <h3>What happens here?</h3>
+            <div class="reaction-box">
+                Austenite → Ferrite + Cementite (Pearlite)
+                <small>When you cool through 727°C, austenite transforms into pearlite</small>
+            </div>
+
+            <p><strong>Why is this important?</strong></p>
+            <ul>
+                <li>It divides steels into three types</li>
+                <li>Most heat treatments aim for this temperature</li>
+                <li>The product (pearlite) has great properties</li>
+            </ul>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Temperature Range</th>
-                        <th>Significance</th>
+                        <th>Steel Type</th>
+                        <th>Carbon Content</th>
+                        <th>What You Get</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1538°C</td>
-                        <td>Melting point of pure iron</td>
+                        <td><strong>Hypoeutectoid</strong></td>
+                        <td>Less than 0.76% C</td>
+                        <td>Ferrite + Pearlite (softer)</td>
                     </tr>
                     <tr>
-                        <td>1493°C</td>
-                        <td>Peritectic reaction temperature</td>
+                        <td><strong>Eutectoid</strong></td>
+                        <td>Exactly 0.76% C</td>
+                        <td>100% Pearlite (balanced)</td>
                     </tr>
                     <tr>
-                        <td>1394°C</td>
-                        <td>δ → γ transformation in pure iron</td>
-                    </tr>
-                    <tr>
-                        <td>1147°C</td>
-                        <td>Eutectic reaction temperature</td>
-                    </tr>
-                    <tr>
-                        <td>912°C</td>
-                        <td>α → γ transformation in pure iron</td>
-                    </tr>
-                    <tr>
-                        <td>727°C</td>
-                        <td>Eutectoid reaction temperature (A₁)</td>
+                        <td><strong>Hypereutectoid</strong></td>
+                        <td>More than 0.76% C</td>
+                        <td>Cementite + Pearlite (harder)</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-
-        <!-- Phases -->
-        <div class="section">
-            <h2>4. Equilibrium Phases</h2>
-
-            <div class="microstructure-grid">
-                <div class="micro-card">
-                    <h4>α-Ferrite (BCC)</h4>
-                    <div class="crystal-viz" style="background: linear-gradient(135deg, #87ceeb 0%, #b3d9f0 100%);">
-                        <svg viewBox="0 0 200 200">
-                            <!-- BCC unit cell representation -->
-                            <g transform="translate(100, 100)">
-                                <!-- Cube edges -->
-                                <line x1="-40" y1="-40" x2="40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="-40" x2="40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="40" x2="-40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="-40" y1="40" x2="-40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <!-- Back face -->
-                                <line x1="-40" y1="-40" x2="-20" y2="-60" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="40" y1="-40" x2="60" y2="-60" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="40" y1="40" x2="60" y2="20" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="-40" y1="40" x2="-20" y2="20" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="-20" y1="-60" x2="60" y2="-60" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="60" y1="-60" x2="60" y2="20" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="60" y1="20" x2="-20" y2="20" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="-20" y1="20" x2="-20" y2="-60" stroke="#333" stroke-width="1.5" opacity="0.5"/>
-                                <!-- Corner atoms -->
-                                <circle cx="-40" cy="-40" r="6" fill="#1565c0"/>
-                                <circle cx="40" cy="-40" r="6" fill="#1565c0"/>
-                                <circle cx="40" cy="40" r="6" fill="#1565c0"/>
-                                <circle cx="-40" cy="40" r="6" fill="#1565c0"/>
-                                <!-- Center atom -->
-                                <circle cx="0" cy="0" r="8" fill="#e53935"/>
-                                <text x="0" y="70" font-size="14" font-weight="bold" text-anchor="middle">BCC</text>
-                            </g>
-                        </svg>
-                    </div>
-                    <p><strong>Structure:</strong> Body-Centered Cubic</p>
-                    <p><strong>Carbon Solubility:</strong> Maximum 0.022 wt% at 727°C</p>
-                    <p><strong>Properties:</strong> Soft, ductile, magnetic below 770°C (Curie temperature)</p>
-                    <p><strong>Stability:</strong> Below 912°C (pure Fe)</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>γ-Austenite (FCC)</h4>
-                    <div class="crystal-viz" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff9999 100%);">
-                        <svg viewBox="0 0 200 200">
-                            <!-- FCC unit cell representation -->
-                            <g transform="translate(100, 100)">
-                                <!-- Cube edges -->
-                                <line x1="-40" y1="-40" x2="40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="-40" x2="40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="40" x2="-40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="-40" y1="40" x2="-40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <!-- Corner atoms -->
-                                <circle cx="-40" cy="-40" r="6" fill="#c62828"/>
-                                <circle cx="40" cy="-40" r="6" fill="#c62828"/>
-                                <circle cx="40" cy="40" r="6" fill="#c62828"/>
-                                <circle cx="-40" cy="40" r="6" fill="#c62828"/>
-                                <!-- Face-centered atoms -->
-                                <circle cx="0" cy="-40" r="8" fill="#fdd835"/>
-                                <circle cx="40" cy="0" r="8" fill="#fdd835"/>
-                                <circle cx="0" cy="40" r="8" fill="#fdd835"/>
-                                <circle cx="-40" cy="0" r="8" fill="#fdd835"/>
-                                <text x="0" y="70" font-size="14" font-weight="bold" text-anchor="middle">FCC</text>
-                            </g>
-                        </svg>
-                    </div>
-                    <p><strong>Structure:</strong> Face-Centered Cubic</p>
-                    <p><strong>Carbon Solubility:</strong> Maximum 2.14 wt% at 1147°C</p>
-                    <p><strong>Properties:</strong> Non-magnetic, more ductile than ferrite, denser packing</p>
-                    <p><strong>Stability:</strong> 912-1394°C (pure Fe), extends to higher C content</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>Fe₃C - Cementite</h4>
-                    <div class="crystal-viz" style="background: linear-gradient(135deg, #616161 0%, #9e9e9e 100%);">
-                        <svg viewBox="0 0 200 200">
-                            <!-- Orthorhombic structure representation -->
-                            <g transform="translate(100, 100)">
-                                <rect x="-50" y="-30" width="100" height="60" fill="none" stroke="#333" stroke-width="2"/>
-                                <!-- Atoms in orthorhombic arrangement -->
-                                <circle cx="-40" cy="-20" r="5" fill="#212121"/>
-                                <circle cx="0" cy="-20" r="5" fill="#212121"/>
-                                <circle cx="40" cy="-20" r="5" fill="#212121"/>
-                                <circle cx="-40" cy="20" r="5" fill="#212121"/>
-                                <circle cx="0" cy="20" r="5" fill="#212121"/>
-                                <circle cx="40" cy="20" r="5" fill="#212121"/>
-                                <circle cx="-20" cy="0" r="6" fill="#d32f2f"/>
-                                <circle cx="20" cy="0" r="6" fill="#d32f2f"/>
-                                <text x="0" y="55" font-size="14" font-weight="bold" text-anchor="middle">Orthorhombic</text>
-                            </g>
-                        </svg>
-                    </div>
-                    <p><strong>Formula:</strong> Fe₃C (Iron Carbide)</p>
-                    <p><strong>Carbon Content:</strong> Exactly 6.67 wt% C</p>
-                    <p><strong>Properties:</strong> Extremely hard (HV ≈ 800), brittle, metastable</p>
-                    <p><strong>Note:</strong> Can decompose to Fe + graphite given sufficient time/temperature</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>δ-Ferrite (BCC)</h4>
-                    <div class="crystal-viz" style="background: linear-gradient(135deg, #9999ff 0%, #ccccff 100%);">
-                        <svg viewBox="0 0 200 200">
-                            <!-- Similar BCC structure -->
-                            <g transform="translate(100, 100)">
-                                <line x1="-40" y1="-40" x2="40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="-40" x2="40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="40" y1="40" x2="-40" y2="40" stroke="#333" stroke-width="2"/>
-                                <line x1="-40" y1="40" x2="-40" y2="-40" stroke="#333" stroke-width="2"/>
-                                <circle cx="-40" cy="-40" r="6" fill="#3949ab"/>
-                                <circle cx="40" cy="-40" r="6" fill="#3949ab"/>
-                                <circle cx="40" cy="40" r="6" fill="#3949ab"/>
-                                <circle cx="-40" cy="40" r="6" fill="#3949ab"/>
-                                <circle cx="0" cy="0" r="8" fill="#ff6f00"/>
-                                <text x="0" y="70" font-size="14" font-weight="bold" text-anchor="middle">BCC</text>
-                            </g>
-                        </svg>
-                    </div>
-                    <p><strong>Structure:</strong> Body-Centered Cubic (same as α-ferrite)</p>
-                    <p><strong>Carbon Solubility:</strong> Maximum 0.09 wt% at 1493°C</p>
-                    <p><strong>Properties:</strong> Similar to α-ferrite but at high temperature</p>
-                    <p><strong>Stability:</strong> 1394-1538°C (pure Fe)</p>
-                </div>
-            </div>
-
-            <div class="warning-box">
-                <h4>🔬 Understanding Carbon Solubility</h4>
-                <p>The dramatically different carbon solubilities arise from crystal structure:</p>
-                <ul>
-                    <li><strong>BCC (α, δ):</strong> Small interstitial sites → low C solubility (≤0.09%)</li>
-                    <li><strong>FCC (γ):</strong> Larger interstitial sites → high C solubility (up to 2.14%)</li>
-                </ul>
-                <p>This explains why austenite can "hold" much more carbon than ferrite, making it crucial for heat treatment processes.</p>
-            </div>
-        </div>
-
-        <!-- Microstructural Constituents -->
-        <div class="section">
-            <h2>5. Microstructural Constituents</h2>
-
-            <h3>Pearlite (Eutectoid Microstructure)</h3>
-            <p>Pearlite is not a phase but a <strong>lamellar microstructure</strong> consisting of alternating layers of α-ferrite and cementite (Fe₃C). It forms when austenite transforms at the eutectoid temperature.</p>
-
-            <div class="equation">
-                γ (0.76% C) → α (0.022% C) + Fe₃C (6.67% C)
-                <br><small style="display: block; margin-top: 10px;">Austenite → Pearlite (ferrite + cementite)</small>
-            </div>
-
-            <div class="highlight-box">
-                <h4>Pearlite Formation Mechanism</h4>
-                <p>During slow cooling through 727°C, the austenite (γ) decomposes simultaneously into:</p>
-                <ul>
-                    <li>Carbon-depleted ferrite (α) - forms the light layers</li>
-                    <li>Carbon-enriched cementite (Fe₃C) - forms the dark layers</li>
-                </ul>
-                <p>The carbon rejected from forming ferrite diffuses to adjacent regions where cementite nucleates, creating the characteristic layered structure.</p>
-            </div>
-
-            <h4>Properties of Pearlite</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Value/Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Hardness</td>
-                        <td>~200 HV (intermediate between ferrite and cementite)</td>
-                    </tr>
-                    <tr>
-                        <td>Strength</td>
-                        <td>Yield strength ≈ 400 MPa</td>
-                    </tr>
-                    <tr>
-                        <td>Interlamellar Spacing</td>
-                        <td>~0.5-1.0 μm (depends on cooling rate)</td>
-                    </tr>
-                    <tr>
-                        <td>Composition</td>
-                        <td>~88% ferrite, ~12% cementite (by volume)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Ledeburite (Eutectic Microstructure)</h3>
-            <p>Ledeburite forms during the <strong>eutectic reaction</strong> at 1147°C in cast irons. It consists of austenite and cementite that solidify simultaneously from the liquid.</p>
-
-            <div class="equation">
-                Liquid (4.3% C) → γ (2.14% C) + Fe₃C (6.67% C)
-                <br><small style="display: block; margin-top: 10px;">At 1147°C - Eutectic Reaction</small>
-            </div>
-
-            <p>Upon further cooling below 727°C, the austenite in ledeburite transforms to pearlite, resulting in a final structure called <strong>transformed ledeburite</strong> (pearlite + cementite).</p>
-        </div>
-
-        <!-- Critical Reactions -->
-        <div class="section">
-            <h2>6. Invariant Reactions</h2>
-
-            <p>The Fe-C system contains three important <strong>invariant reactions</strong> where three phases coexist in equilibrium at a fixed temperature and composition.</p>
-
-            <h3>6.1 Eutectoid Reaction <span class="badge">MOST CRITICAL</span></h3>
-            
-            <div class="critical-box">
-                <h4>⚡ Eutectoid Transformation</h4>
-                <p><strong>Temperature:</strong> 727°C (1341°F)</p>
-                <p><strong>Composition:</strong> 0.76 wt% C (also called 0.8% C in many texts)</p>
-                <p><strong>Reaction:</strong></p>
-                <div class="equation" style="margin-top: 15px;">
-                    γ (Austenite) ⟶ α (Ferrite) + Fe₃C (Cementite)
-                </div>
-            </div>
-
-            <p>This is the <strong>single most important reaction</strong> in steel metallurgy because:</p>
-            <ul>
-                <li>It defines the boundary between <strong>hypoeutectoid</strong> (< 0.76% C) and <strong>hypereutectoid</strong> (> 0.76% C) steels</li>
-                <li>The product (pearlite) has excellent mechanical properties</li>
-                <li>Most heat treatment processes involve heating above or cooling through this temperature</li>
-                <li>The A₁ temperature (727°C) is a critical reference in heat treatment</li>
-            </ul>
-
-            <div class="key-point">
-                <strong>Steel Classification:</strong>
-                <br>• Hypoeutectoid steels (< 0.76% C): Form proeutectoid ferrite + pearlite
-                <br>• Eutectoid steel (0.76% C): Forms 100% pearlite
-                <br>• Hypereutectoid steels (> 0.76% C): Form proeutectoid cementite + pearlite
-            </div>
-
-            <h3>6.2 Eutectic Reaction</h3>
-
-            <div class="highlight-box">
-                <h4>🌡️ Eutectic Transformation</h4>
-                <p><strong>Temperature:</strong> 1147°C (2097°F)</p>
-                <p><strong>Composition:</strong> 4.3 wt% C</p>
-                <p><strong>Reaction:</strong></p>
-                <div class="equation" style="margin-top: 15px;">
-                    Liquid ⟶ γ (Austenite) + Fe₃C (Cementite)
-                </div>
-            </div>
-
-            <p>This reaction is important for <strong>cast irons</strong>:</p>
-            <ul>
-                <li>Forms the constituent <strong>ledeburite</strong></li>
-                <li>Determines the solidification behavior of high-carbon alloys</li>
-                <li>Cast irons with ~4.3% C have the lowest melting point, improving castability</li>
-            </ul>
-
-            <h3>6.3 Peritectic Reaction</h3>
-
-            <div class="highlight-box">
-                <h4>🔄 Peritectic Transformation</h4>
-                <p><strong>Temperature:</strong> 1493°C (2719°F)</p>
-                <p><strong>Composition:</strong> 0.16 wt% C</p>
-                <p><strong>Reaction:</strong></p>
-                <div class="equation" style="margin-top: 15px;">
-                    Liquid + δ (Delta Ferrite) ⟶ γ (Austenite)
-                </div>
-            </div>
-
-            <p>This reaction:</p>
-            <ul>
-                <li>Occurs during solidification of low-carbon steels</li>
-                <li>Is often incomplete in industrial processes due to rapid cooling</li>
-                <li>Can lead to segregation issues in cast steels</li>
-                <li>Has less practical importance than eutectoid/eutectic reactions</li>
-            </ul>
         </div>
 
         <!-- Steel vs Cast Iron -->
         <div class="section">
-            <h2>7. Steel vs. Cast Iron Classification</h2>
+            <h2>Steel vs Cast Iron (The Big Divide)</h2>
 
-            <p>The boundary at <strong>2.14 wt% C</strong> (the maximum solubility of carbon in austenite) fundamentally divides ferrous alloys into two categories:</p>
+            <p>The vertical line at <span class="highlight">2.14% Carbon</span> splits the diagram into two worlds:</p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Steels (< 2.14% C)</th>
-                        <th>Cast Irons (2.14-6.67% C)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Solidification</strong></td>
-                        <td>Completely solid as austenite</td>
-                        <td>Forms eutectic (ledeburite)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Typical Carbon Range</strong></td>
-                        <td>0.05-1.5% C (commercially)</td>
-                        <td>2.5-4.0% C (commercially)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Castability</strong></td>
-                        <td>Poor to moderate</td>
-                        <td>Excellent (near eutectic = low melting point)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Workability</strong></td>
-                        <td>Excellent (hot/cold rolling, forging)</td>
-                        <td>Poor (brittle, cannot be worked)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Weldability</strong></td>
-                        <td>Good to excellent</td>
-                        <td>Poor (except ductile iron with special techniques)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Typical Uses</strong></td>
-                        <td>Structural, automotive, tools, machinery</td>
-                        <td>Engine blocks, pipes, cookware, machine bases</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Microstructure</strong></td>
-                        <td>Ferrite + pearlite (or martensite, bainite)</td>
-                        <td>Pearlite + graphite/cementite networks</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>STEEL (Left Side)</h4>
+                    <p><strong>Carbon:</strong> 0 to 2.14%</p>
+                    <p><strong>Can you bend it?</strong> Yes</p>
+                    <p><strong>Can you weld it?</strong> Yes</p>
+                    <p><strong>Can you shape it?</strong> Yes (rolling, forging)</p>
+                    <p><strong>Uses:</strong> Buildings, cars, tools, machines</p>
+                </div>
 
-            <div class="warning-box">
-                <h4>📊 Common Steel Grades by Carbon Content</h4>
-                <ul>
-                    <li><strong>Low-carbon (Mild) steel:</strong> 0.05-0.25% C - Ductile, weldable, used in construction</li>
-                    <li><strong>Medium-carbon steel:</strong> 0.25-0.6% C - Balanced strength/ductility, gears, shafts</li>
-                    <li><strong>High-carbon steel:</strong> 0.6-1.0% C - Hard, strong, springs, cutting tools</li>
-                    <li><strong>Ultra-high carbon steel:</strong> 1.0-2.0% C - Very hard, specialized cutting tools</li>
-                </ul>
+                <div class="card">
+                    <h4>CAST IRON (Right Side)</h4>
+                    <p><strong>Carbon:</strong> 2.14 to 6.67%</p>
+                    <p><strong>Can you bend it?</strong> No (breaks)</p>
+                    <p><strong>Can you weld it?</strong> Difficult</p>
+                    <p><strong>Can you shape it?</strong> Only by casting (melting & pouring)</p>
+                    <p><strong>Uses:</strong> Engine blocks, pipes, cookware</p>
+                </div>
+            </div>
+
+            <div class="simple-box">
+                <p><strong>Simple rule:</strong> Want to shape it after making? → Use steel (low carbon). Want to pour it into a mold? → Use cast iron (high carbon).</p>
             </div>
         </div>
 
-        <!-- Applications -->
+        <!-- How to Use This Diagram -->
         <div class="section">
-            <h2>8. Practical Applications of the Fe-C Diagram</h2>
+            <h2>How to Use This Diagram</h2>
 
-            <h3>8.1 Heat Treatment Design</h3>
-            <p>The phase diagram is essential for designing heat treatment processes:</p>
+            <h3>Example: What happens when you cool 0.4% carbon steel?</h3>
 
-            <div class="microstructure-grid">
-                <div class="micro-card">
-                    <h4>Annealing</h4>
-                    <p>Heat above A₃ line (austenite region), hold, then slowly cool to produce soft, ductile microstructure (ferrite + pearlite).</p>
-                    <p><strong>Purpose:</strong> Reduce hardness, improve machinability</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>Normalizing</h4>
-                    <p>Heat above A₃, hold, then air cool. Produces finer pearlite than annealing.</p>
-                    <p><strong>Purpose:</strong> Refine grain structure, improve uniformity</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>Hardening</h4>
-                    <p>Heat above A₃ to form austenite, then rapidly quench to form martensite (non-equilibrium).</p>
-                    <p><strong>Purpose:</strong> Maximum hardness and strength</p>
-                </div>
-
-                <div class="micro-card">
-                    <h4>Spheroidizing</h4>
-                    <p>Heat to just below A₁ (727°C) and hold for extended time. Cementite forms spheroids instead of lamellae.</p>
-                    <p><strong>Purpose:</strong> Improve machinability of high-carbon steels</p>
-                </div>
+            <div class="simple-box">
+                <p><strong>Step 1:</strong> At 1000°C → You're in the Austenite region (100% austenite)</p>
+                <p><strong>Step 2:</strong> Cool down to 800°C → Some ferrite starts forming</p>
+                <p><strong>Step 3:</strong> Hit 727°C → The remaining austenite becomes pearlite</p>
+                <p><strong>Final result:</strong> You get a mix of Ferrite (soft) + Pearlite (harder)</p>
             </div>
 
-            <h3>8.2 Microstructure Prediction</h3>
-            <p>Engineers use the diagram to predict the final microstructure:</p>
-
-            <div class="equation">
-                Example: 0.4% C steel cooled slowly from 1000°C
-                <br><br>
-                1000°C: 100% Austenite (γ)
-                <br>↓ Cool through A₃ line (~800°C)
-                <br>800-727°C: Proeutectoid α-ferrite begins forming
-                <br>727°C: Remaining austenite → Pearlite
-                <br>Room temp: ~50% Ferrite + 50% Pearlite
-            </div>
-
-            <h3>8.3 Alloy Composition Selection</h3>
-            <p>Material selection based on required properties:</p>
-
+            <p><strong>This tells you:</strong></p>
             <ul>
-                <li><strong>High ductility needed?</strong> → Choose low-carbon steel (< 0.2% C)</li>
-                <li><strong>Balance of strength and ductility?</strong> → Medium-carbon steel (0.3-0.5% C)</li>
-                <li><strong>Maximum hardness?</strong> → High-carbon or tool steel (0.8-1.2% C)</li>
-                <li><strong>Complex casting shapes?</strong> → Cast iron near eutectic (~4.3% C)</li>
+                <li>The final structure</li>
+                <li>How hard it will be</li>
+                <li>How strong it will be</li>
+                <li>How to heat treat it</li>
             </ul>
         </div>
 
-        <!-- Limitations -->
+        <!-- Why It Matters -->
         <div class="section">
-            <h2>9. Limitations and Considerations</h2>
+            <h2>Why This Diagram Matters</h2>
 
-            <div class="critical-box">
-                <h4>⚠️ Critical Limitations of the Equilibrium Diagram</h4>
-                
-                <h4>1. Assumes Equilibrium Conditions</h4>
-                <p>The diagram assumes <strong>infinitely slow cooling</strong> that allows complete diffusion and equilibrium. In reality:</p>
-                <ul>
-                    <li>Industrial cooling rates prevent equilibrium</li>
-                    <li>Faster cooling → finer pearlite, bainite, or martensite (not shown on diagram)</li>
-                    <li>TTT and CCT diagrams are needed for non-equilibrium transformations</li>
-                </ul>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>1. Choose the Right Material</h4>
+                    <p>Need something soft and bendable? Use low carbon (0.1-0.2%).</p>
+                    <p>Need something hard? Use high carbon (0.8-1%).</p>
+                </div>
 
-                <h4>2. Fe-Fe₃C System (Metastable)</h4>
-                <p>The diagram shows the <strong>metastable Fe-Fe₃C system</strong>, not the stable Fe-Graphite system:</p>
-                <ul>
-                    <li>Cementite (Fe₃C) can decompose to Fe + Graphite given enough time/temperature</li>
-                    <li>In gray cast iron, graphite forms instead of cementite</li>
-                    <li>Silicon promotes graphitization</li>
-                </ul>
+                <div class="card">
+                    <h4>2. Design Heat Treatment</h4>
+                    <p>The diagram tells you what temperatures to use for hardening, softening, or strengthening steel.</p>
+                </div>
 
-                <h4>3. Pure Binary System</h4>
-                <p>Real steels contain alloying elements (Mn, Si, Cr, Ni, Mo) that:</p>
-                <ul>
-                    <li>Shift phase boundaries (A₁, A₃ temperatures)</li>
-                    <li>Stabilize or destabilize certain phases</li>
-                    <li>Change transformation kinetics</li>
-                    <li>Require multi-component phase diagrams for accuracy</li>
-                </ul>
+                <div class="card">
+                    <h4>3. Predict Properties</h4>
+                    <p>Know the carbon % and cooling process? The diagram predicts hardness and strength!</p>
+                </div>
 
-                <h4>4. No Information on Kinetics</h4>
-                <p>The diagram shows <strong>what</strong> forms, not <strong>how fast</strong>:</p>
-                <ul>
-                    <li>Transformation rates depend on temperature and composition</li>
-                    <li>Nucleation and growth mechanisms are not indicated</li>
-                    <li>Diffusion distances and times are not considered</li>
-                </ul>
-            </div>
-
-            <div class="highlight-box">
-                <h4>🔧 Complementary Tools Required</h4>
-                <p>For complete understanding of steel behavior, engineers also use:</p>
-                <ul>
-                    <li><strong>TTT Diagrams</strong> (Time-Temperature-Transformation): Show isothermal transformation kinetics</li>
-                    <li><strong>CCT Diagrams</strong> (Continuous Cooling Transformation): Show transformations during continuous cooling</li>
-                    <li><strong>Pseudo-binary diagrams:</strong> For specific alloy systems (e.g., Fe-C-Mn)</li>
-                    <li><strong>Schaeffler diagrams:</strong> For predicting weld microstructures in stainless steels</li>
-                </ul>
+                <div class="card">
+                    <h4>4. Understand Failures</h4>
+                    <p>If steel broke or cracked, this diagram helps explain why (wrong structure formed).</p>
+                </div>
             </div>
         </div>
 
-        <!-- Summary -->
-        <div class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white;">
-            <h2 style="color: white; border-left-color: var(--accent);">10. Summary & Key Takeaways</h2>
+        <!-- Key Takeaways -->
+        <div class="section" style="background: var(--primary); color: white;">
+            <h2 style="color: white; border-bottom-color: white;">Key Points to Remember</h2>
+            
+            <ul style="font-size: 1.2em;">
+                <li style="color: white;">The diagram shows what iron looks like at different temperatures and carbon levels</li>
+                <li style="color: white;">The eutectoid point (0.76% C, 727°C) is the MOST important spot</li>
+                <li style="color: white;">2.14% carbon divides steel from cast iron</li>
+                <li style="color: white;">More carbon = harder but more brittle</li>
+                <li style="color: white;">Use this diagram to choose materials and design heat treatments</li>
+            </ul>
 
-            <div style="font-size: 1.2em; line-height: 2;">
-                <p>✓ The Fe-C phase diagram maps <strong>equilibrium phases</strong> as functions of temperature and carbon content</p>
-                
-                <p>✓ <strong>Three major phases:</strong> α-Ferrite (BCC), γ-Austenite (FCC), Fe₃C-Cementite</p>
-                
-                <p>✓ <strong>Eutectoid reaction</strong> at 0.76% C and 727°C is the most critical transformation in steels</p>
-                
-                <p>✓ <strong>2.14% C</strong> divides steels (workable, weldable) from cast irons (castable, brittle)</p>
-                
-                <p>✓ <strong>Pearlite</strong> (ferrite + cementite lamellae) forms from eutectoid transformation</p>
-                
-                <p>✓ The diagram is essential for <strong>heat treatment design</strong> and <strong>microstructure prediction</strong></p>
-                
-                <p>✓ <strong>Limitations:</strong> Assumes equilibrium, binary system only, no kinetic information</p>
-                
-                <p>✓ Must be supplemented with <strong>TTT/CCT diagrams</strong> for real manufacturing processes</p>
-            </div>
-
-            <div class="key-point" style="background: rgba(255, 255, 255, 0.95); margin-top: 30px;">
-                <strong style="color: var(--accent);">For Exams:</strong> Focus on the three invariant reactions, steel vs. cast iron boundary, and how to use the diagram to predict microstructure for a given composition and cooling path. Understanding the eutectoid transformation and resulting pearlite microstructure is absolutely essential.
-            </div>
         </div>
 
         <footer>
-            <p>📚 Comprehensive Guide to Iron-Carbon Phase Equilibria</p>
-            <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">
-                Materials Science & Engineering | Undergraduate Curriculum
-            </p>
+            <p>Iron-Carbon Phase Diagram Guide</p>
         </footer>
     </div>
 
-    <script>
-        // Interactive phase diagram
-        const phaseRegions = document.querySelectorAll('.phase-region');
-        const tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        document.body.appendChild(tooltip);
+    <div class="tooltip" id="tooltip"></div>
 
-        phaseRegions.forEach(region => {
-            region.addEventListener('mouseenter', function(e) {
+    <script>
+        // Interactive tooltips
+        const tooltip = document.getElementById('tooltip');
+        const phaseAreas = document.querySelectorAll('.phase-area');
+
+        phaseAreas.forEach(area => {
+            area.addEventListener('mouseenter', function(e) {
                 const phase = this.getAttribute('data-phase');
-                tooltip.textContent = `Phase: ${phase}`;
+                tooltip.textContent = phase;
                 tooltip.style.opacity = '1';
             });
 
-            region.addEventListener('mousemove', function(e) {
+            area.addEventListener('mousemove', function(e) {
                 tooltip.style.left = (e.pageX + 15) + 'px';
                 tooltip.style.top = (e.pageY + 15) + 'px';
             });
 
-            region.addEventListener('mouseleave', function() {
+            area.addEventListener('mouseleave', function() {
                 tooltip.style.opacity = '0';
             });
         });
 
-        // Scroll animations
+        // Smooth scroll animations
+        const sections = document.querySelectorAll('.section');
+        
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section').forEach(section => {
+        sections.forEach(section => {
             observer.observe(section);
         });
 
-        // Add click interaction to micro-cards
-        document.querySelectorAll('.micro-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-            });
-        });
-
-        console.log('🔬 Fe-C Phase Diagram - Interactive Educational Tool Loaded');
-        console.log('📖 Undergraduate Materials Science Resource');
+        console.log('✅ Simple Iron-Carbon Phase Diagram loaded');
     </script>
 </body>
 </html>
